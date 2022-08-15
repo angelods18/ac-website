@@ -1,0 +1,25 @@
+:host {
+  background: #0d1390;
+  color: #FFFFFF;
+  height: 100vh;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.sidebar {
+  z-index: 20;
+  overflow-y: auto;
+}
+
+.top-menu {
+  color: #FFFFFF;
+  font-size: 20px;
+  padding-left: 70px;
+  line-height: 65px;
+  z-index: 3;
+}
+
+.content-menu {
+  padding: 24px 18px 24px 18px;
+}
