@@ -8,7 +8,7 @@ const routes: Routes = [
   {
     path:'', component: HomepageComponent
   },
-  {path: 'settore/:settore', component: SettoreComponent },
+  {path: 'settore', loadChildren: () => import('./modules/settore/settore.module').then(m => m.SettoreModule) },
 ];
 
 @NgModule({

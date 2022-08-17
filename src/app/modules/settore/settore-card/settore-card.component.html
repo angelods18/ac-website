@@ -1,0 +1,24 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{incontro.titolo}}</mat-card-title>
+        <mat-card-subtitle class="incontro-subtitle">
+            <div class="incontro-tags">
+                <span *ngFor="let tag of incontro.tags" class="incontro-tag">
+                    #{{tag}}
+                </span>
+            </div>
+            <div class="incontro-gruppo-param">
+                <div class="incontro-partecipanti">
+                    Partecipanti: {{incontro.partecipanti}}
+                </div>
+                <div class="incontro-eta">
+                    Età: {{incontro.eta}}
+                </div>
+            </div>   
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="incontro-testo">
+        <h3>Obiettivo: <b>{{incontro.obiettivo}}</b></h3>
+        <p>{{incontro.descrizione}}{{incontro.descrizione}}</p>
+    </mat-card-content>
+</mat-card>

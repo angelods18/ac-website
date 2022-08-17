@@ -1,0 +1,29 @@
+.incontro-subtitle{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.incontro-tags{
+    min-width: 50%;
+}
+.incontro-tag{
+    margin-left: 5%;
+    color: #3f51b5;
+}
+
+.incontro-testo{
+    white-space: pre-line;
+    font-size: 15px;
+}
+
+::ng-deep .mat-card-header-text{
+    width: 100%;
+}
+
+::ng-deep .mat-card-title{
+    font-size: 30px !important;
+    color: #3f51b5;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}

@@ -1,19 +1,36 @@
-<div class="page-container">
+<div class="page-with-sidebar">
   <div class="page-settore" fxLayout="column">
-    <div class="header-settore" fxFlex="25" fxLayout="row">
-      <div class="titolo-settore">
-        <h3>{{this.settore}}</h3>
-      </div>
-      <div>
+    <div class="header-settore" fxLayout="row" fxLayoutAlign="space-between center">
+      <div class="titolo-settore" >
         <mat-form-field appearance="fill">
-          <mat-label>Cerca:</mat-label>
-          <input matInput type="text" (keypress)="keypress($event)"
-            (keyup.enter)="onSearchSubmit()" [(ngModel)]="search_term">
+          <mat-label>Settore</mat-label>
+          <mat-select [(value)]="settore" (selectionChange)="cambioSettore($event)">
+            <mat-option *ngFor="let sett of settori" [value]="sett">
+              {{sett}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
+      <div class="search-button">
+        <button mat-raised-button color="primary" (click)="apriCreaIncontro()">
+          Crea nuovo
+          <mat-icon id="close-icon">close icon</mat-icon>
+        </button>
+      </div>
     </div>
-
+    <!-- filtro -->
+    <div class="search-settore">
+      <mat-form-field appearance="fill" >
+        <mat-label>Cerca:</mat-label>
+        <input matInput type="text" (keypress)="keypress($event)"
+          (keyup.enter)="onSearchSubmit()" [(ngModel)]="search_term">
+      </mat-form-field>
+    </div>
+    <!-- incontri -->
+    <div class="body-settore" fxLayout="column">
+        <div class="card-incontro" *ngFor="let incontro of incontri">
+          <app-settore-card [incontro]="incontro"></app-settore-card>
+        </div>
+    </div>
   </div>
-
-
 </div>

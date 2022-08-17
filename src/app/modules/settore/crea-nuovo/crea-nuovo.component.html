@@ -1,0 +1,89 @@
+<div class="page-with-sidebar">
+    <div class="page-crea-settore">
+        <div class="crea-incontro" fxLayout="column" fxLayoutAlign="space-around start">
+            <h2>Crea il nuovo incontro</h2>
+            <!-- titolo -->
+            <div class="titolo-incontro" fxLayout="row" fxLayoutAlign="space-between center">
+                <div fxFlex="35">
+                    <h3>Titolo</h3>
+                </div>
+                <div fxFlex="65">
+                    <mat-form-field appearance="fill" >
+                        <mat-label>Titolo</mat-label>
+                        <input matInput type="text" placeholder="titolo" [(ngModel)]="incontro.titolo">
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- descrizione gruppo -->
+            <div class="incontro gruppo-incontro" fxLayout="row" fxLayoutAlign="space-between center">
+                <div style="min-width: 15%;">
+                    <h3>Gruppo</h3>
+                </div>
+                <div fxLayout="row">
+                    <div class="gruppo-incontro-param" >
+                        <mat-form-field appearance="fill" >
+                            <mat-label>N° partecipanti</mat-label>
+                            <input matInput type="number" placeholder="n° partecipanti" [(ngModel)]="incontro.partecipanti">
+                        </mat-form-field>
+                    </div>
+                    <div class="gruppo-incontro-param">
+                        <mat-form-field appearance="fill" >
+                            <mat-label>Età</mat-label>
+                            <input matInput type="text" placeholder="età" [(ngModel)]="incontro.eta">
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <!-- tag-parole chiave -->
+            <div class="incontro tag-incontro" fxLayout="row" fxLayoutAlign="space-between center">
+                <div class="tag-title" fxFlex="45">
+                    <h3>Parole chiave</h3>
+                </div>
+                <div class="tag">
+                    <mat-form-field appearance="fill" >
+                        <mat-label>Parole chiave</mat-label>
+                        <input matInput type="text" placeholder="tag" (keyup.enter)="onTagSubmit()" [(ngModel)]="tag">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-evenly start">
+                <div class="tag" *ngFor="let tag of incontro.tags; index as i">
+                    <button mat-raised-button color="primary" (click)="rimuoviTag(i)">
+                        {{tag}}
+                        <mat-icon>close icon</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+             <!-- obiettivo -->
+            <div class="incontro obiettivo-incontro">
+                <div >
+                    <h3>Obiettivo</h3>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill" style="width: 400px">
+                        <mat-label>Obiettivo</mat-label>
+                        <textarea matInput rows="5" cols="40" placeholder="text" [(ngModel)]="incontro.obiettivo"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <!-- descrizione -->
+            <div class="incontro descrizione-incontro">
+                <div>
+                    <h3>Descrizione</h3>
+                </div>
+                <div>
+                    <mat-form-field appearance="fill" style="width: 600px">
+                        <mat-label>Descrizione</mat-label>
+                        <textarea matInput rows="5" cols="40" placeholder="text" [(ngModel)]="incontro.descrizione"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <button mat-raised-button color="primary" class="salva-incontro"  (click)="creaIncontro()">
+                Salva incontro
+                <mat-icon id="send-icon">send</mat-icon>    
+            </button>
+        </div>
+    </div>
+</div>

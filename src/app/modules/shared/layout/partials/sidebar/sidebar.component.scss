@@ -1,14 +1,15 @@
 :host {
-  background: #0d1390;
+  background: #3727e4;
   color: #FFFFFF;
   height: 100vh;
   display: flex;
+  margin-top: 65px;
   width: 100%;
   flex-direction: column;
+  z-index: 10;
 }
 
 .sidebar {
-  z-index: 20;
   overflow-y: auto;
 }
 
@@ -22,4 +23,8 @@
 
 .content-menu {
   padding: 24px 18px 24px 18px;
+}
+
+.side-btn {
+  cursor: pointer;
 }

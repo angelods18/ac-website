@@ -5,10 +5,13 @@ import { SidebarComponent } from './layout/partials/sidebar/sidebar.component';
 import { HeaderComponent } from './layout/partials/header/header.component';
 import { RouterModule } from '@angular/router';
 import { MatIconModule} from '@angular/material/icon';
-import { HomepageComponent } from './layout/homepage/homepage.component'
-import { MatGridListModule } from '@angular/material/grid-list'
+import { HomepageComponent } from './layout/homepage/homepage.component';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule} from '@angular/material/form-field'
+import { MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule} from '@angular/material/button'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -23,12 +26,18 @@ import { MatFormFieldModule} from '@angular/material/form-field'
     MatIconModule,
     MatGridListModule,
     MatFormFieldModule,
-    FormsModule
+    MatInputModule,
+    FormsModule,
+    MatButtonModule,
+    HttpClientModule
   ],
   exports:[
     DashboardComponent,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
   ]
 })
 export class SharedModule { }
