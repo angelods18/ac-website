@@ -1,0 +1,49 @@
+<div class="crea-evento" fxLayout="column">
+    <div class="data-evento" fxLayout="row">
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Scegli una data</mat-label>
+                <input matInput [matDatepicker]="picker" [formControl]="date">
+                <mat-hint>DD/MM/YYYY</mat-hint>
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="evento-ora" fxFlex="row">
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="Orario" class="input-ora" aria-label="24hr format" [ngxTimepicker]="fullTime" [format]="24" [(ngModel)]="evento.ora" readonly>
+                <mat-icon id="ora-icon">access_time</mat-icon>
+                <ngx-material-timepicker #fullTime></ngx-material-timepicker>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field appearance="fill" >
+                <mat-label>Durata (ore)</mat-label>
+                <input matInput type="number" placeholder="durata" [(ngModel)]="evento.durata">
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="titolo-evento" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxFlex="35">
+            <h3>Titolo</h3>
+        </div>
+        <div fxFlex="65">
+            <mat-form-field appearance="fill" >
+                <mat-label>Titolo</mat-label>
+                <input matInput type="text" placeholder="titolo" [(ngModel)]="evento.titolo">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="descrizione-evento" fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxFlex="35">
+            <h3>Descrizione</h3>
+        </div>
+        <div fxFlex="65">
+            <mat-form-field appearance="fill"  style="width: 400px; white-space: pre-line;">
+                <mat-label>Descrizione</mat-label>
+                <textarea matInput rows="5" cols="40" placeholder="text" [(ngModel)]="evento.descrizione"></textarea>
+            </mat-form-field>
+        </div>
+    </div>
+</div>

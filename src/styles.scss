@@ -53,3 +53,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .settings-container-small {
   padding: 0 0 0 282px;
 }
+
+.timepicker-overlay {
+  z-index: 1001 !important;
+}
+
+.timepicker-backdrop-overlay {
+  z-index: 1001 !important;
+}

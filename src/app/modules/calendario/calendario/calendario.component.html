@@ -1,0 +1,30 @@
+<div class="page-with-sidebar">
+    <div class="page-calendario" fxLayout="column">
+        CALENDARIO 2022/2023
+        <div class="header-calendario" fxLayout="row" fxLayoutAlign="space-between center">
+            <div class="titolo-calendario" >
+              <mat-form-field appearance="fill">
+                <mat-label>Settore</mat-label>
+                <mat-select [(value)]="settore" (selectionChange)="cambioSettore($event)">
+                  <mat-option *ngFor="let sett of settori" [value]="sett">
+                    {{sett}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="search-button">
+              <button mat-raised-button color="primary" (click)="creaEvento()">
+                Crea nuovo evento
+                <mat-icon id="close-icon">close icon</mat-icon>
+              </button>
+            </div>
+        </div>
+        <div class="body-calendario">
+            <mat-card>
+                <mat-calendar [selected]="selectedDate" (selectedChange)="creaEvento($event)">
+
+                </mat-calendar>
+            </mat-card>
+        </div>
+    </div>
+</div>

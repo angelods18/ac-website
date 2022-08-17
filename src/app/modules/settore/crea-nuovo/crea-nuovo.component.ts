@@ -35,6 +35,7 @@ export class CreaNuovoComponent implements OnInit {
 
   onTagSubmit(){
     this.incontro.tags.push(this.tag);
+    this.tag="";
   }
 
   creaIncontro(){

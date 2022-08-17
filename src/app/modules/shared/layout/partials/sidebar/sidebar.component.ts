@@ -16,6 +16,10 @@ export class SidebarComponent implements OnInit {
   }
 
   homepage(){
-    this.router.navigate(['/'])
+    this.router.navigate(['/']);
+  }
+
+  calendario(){
+    this.router.navigate(['/calendario']);
   }
 }
