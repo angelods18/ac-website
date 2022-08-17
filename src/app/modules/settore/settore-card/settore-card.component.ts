@@ -14,4 +14,7 @@ export class SettoreCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  apriIncontro(){
+    
+  }
 }

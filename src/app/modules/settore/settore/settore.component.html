@@ -32,5 +32,8 @@
           <app-settore-card [incontro]="incontro"></app-settore-card>
         </div>
     </div>
+    <div class="body-settore" *ngIf="incontri==null || incontri == undefined || incontri.length==0">
+        <h1>Non sono ancora presenti incontri per questo settore</h1>
+    </div>
   </div>
 </div>

@@ -14,6 +14,12 @@
 .incontro-testo{
     white-space: pre-line;
     font-size: 15px;
+    height: 100px;
+    overflow: hidden;
+}
+
+.incontro-gruppo-param{
+    margin-right: 5%;
 }
 
 ::ng-deep .mat-card-header-text{
