@@ -5,12 +5,26 @@
     align-items: center;
 }
 
-// .evento-ora{
-//     display: flex;
-//     align-items: center;
-// }
+::ng-deep.mat-form-field-infix{
+    display: flex;
+}
 
-#ora-icon{
-    position: relative;
-    left: 90%;
+.titolo-evento{
+    margin-top:5%;
+}
+
+::ng-deep ngx-material-timepicker-container{
+    --dial-background-color: #3727e4 !important;
+    --dial-editable-active-color: #3727e4 !important;
+    --clock-hand-color: #3727e4 !important;
+    --button-color: #3727e4 !important;
+}
+
+.salva-evento{
+    float: right;
+    font-size: large;
+
+    #send-icon{
+        margin-left: 5%;
+    }
 }

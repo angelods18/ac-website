@@ -3,7 +3,7 @@
         <div>
             <mat-form-field appearance="fill">
                 <mat-label>Scegli una data</mat-label>
-                <input matInput [matDatepicker]="picker" [formControl]="date">
+                <input matInput [matDatepicker]="picker" [formControl]="dataEvento" (dateChange)="aggiornaData()">
                 <mat-hint>DD/MM/YYYY</mat-hint>
                 <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
@@ -13,7 +13,7 @@
             <mat-form-field appearance="fill">
                 <input matInput placeholder="Orario" class="input-ora" aria-label="24hr format" [ngxTimepicker]="fullTime" [format]="24" [(ngModel)]="evento.ora" readonly>
                 <mat-icon id="ora-icon">access_time</mat-icon>
-                <ngx-material-timepicker #fullTime></ngx-material-timepicker>
+                <ngx-material-timepicker #fullTime [timepickerClass]="'orologio-class'"></ngx-material-timepicker>
             </mat-form-field>
         </div>
         <div>
@@ -45,5 +45,12 @@
                 <textarea matInput rows="5" cols="40" placeholder="text" [(ngModel)]="evento.descrizione"></textarea>
             </mat-form-field>
         </div>
+    </div>
+
+    <div class="invia-evento">
+        <button mat-raised-button color="primary" class="salva-evento"  (click)="creaEvento()">
+            Salva evento
+            <mat-icon id="send-icon">send</mat-icon>    
+        </button>
     </div>
 </div>

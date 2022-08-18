@@ -2,6 +2,16 @@
     transform: rotate(45deg);
 }
 
+.header-calendario{
+    display: flex;
+    justify-content: space-between;
+}
+
 .body-calendario{
-    margin:auto
+    margin: 5% auto;
+}
+
+::ng-deep.data-occupata{
+    background-color: #3727e4;
+    border-radius: 100%;
 }

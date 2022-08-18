@@ -8,7 +8,6 @@ export class IncontroService {
 
   baseUrl: string = "http://localhost:8080/";
 
-
   constructor(
     private httpClient: HttpClient
   ) { }

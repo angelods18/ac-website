@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatCalendarCellClassFunction, MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { MatDialog } from '@angular/material/dialog';
 import { CreaEventoComponent } from '../crea-evento/crea-evento.component';
 
@@ -18,9 +19,7 @@ export class CalendarioComponent implements OnInit {
     "ACR", "GVS", "GVN", "ADULTI"
   ];
   selectedDate = Date.now();
-
-
-
+  
   constructor(
     public dialog: MatDialog
   ) { }
@@ -55,4 +54,14 @@ export class CalendarioComponent implements OnInit {
     })
   }
 
+
+  dateOccupate () {
+    return (date: Date): MatCalendarCellCssClasses => {
+      if (date.getDate() === 1) {
+        return 'data-occupata';
+      } else {
+        return '';
+      }
+    };
+  }
 }
