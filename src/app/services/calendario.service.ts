@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -20,9 +20,13 @@ export class CalendarioService {
 
   ottieniEventi(request?:any){
     let url = this.baseUrl + 'evento/eventi';
-    let param = request!=undefined ? {
-      request:request
-    } : {};
-    return this.httpClient.get(url, {params: param});
+    let params = new HttpParams();
+    if(request?.settore!=undefined){
+      params = params.append("settore", request.settore)
+    }
+    if(request?.month!=undefined){
+      params =params.append("month", request.month)
+    }
+    return this.httpClient.get(url, {params: params});
   }
 }

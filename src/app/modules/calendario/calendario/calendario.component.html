@@ -21,7 +21,8 @@
         </div>
         <div class="body-calendario">
             <mat-card>
-                <mat-calendar [selected]="selectedDate" (selectedChange)="creaEvento($event)" [dateClass]="dateOccupate()">
+                <mat-calendar  #calendar [selected]="selectedDate" (selectedChange)="creaEvento($event)" [dateClass]="dateOccupate()"
+                    (monthSelected)="cambioMese($event)">
 
                 </mat-calendar>
             </mat-card>

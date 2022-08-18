@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatCalendarCellClassFunction, MatCalendarCellCssClasses } from '@angular/material/datepicker';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatCalendar, MatCalendarCellClassFunction, MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { MatDialog } from '@angular/material/dialog';
+import { CalendarioService } from 'src/app/services/calendario.service';
 import { CreaEventoComponent } from '../crea-evento/crea-evento.component';
 
 @Component({
@@ -10,7 +11,9 @@ import { CreaEventoComponent } from '../crea-evento/crea-evento.component';
 })
 export class CalendarioComponent implements OnInit {
 
-  public incontri: any[] = [];
+  @ViewChild('calendar') calendar: MatCalendar<Date>;
+
+  public eventi: any[] = [];
   public settore: string = '';
   public search_term:any = '';
   public page: number=0;
@@ -18,15 +21,46 @@ export class CalendarioComponent implements OnInit {
   settori = [
     "ACR", "GVS", "GVN", "ADULTI"
   ];
-  selectedDate = Date.now();
-  
+  selectedDate = new Date();
+  days: number[]= [];
+  isReady: boolean = false;
+
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private calendarioService: CalendarioService
   ) { }
 
   ngOnInit(): void {
-    this.settore="ACR";
-    console.log(this.selectedDate)
+    this.settore="GVN";
+    console.log(this.selectedDate);
+    this.ottieniEventi();
+
+  }
+
+  ottieniEventi(){
+    this.eventi=[];
+    this.calendarioService.ottieniEventi({
+      settore: this.settore,
+      month: this.selectedDate.getMonth()+1
+    }).subscribe( (resp:any[]) => {
+      console.log("resp", resp);
+      this.eventi=resp;
+      this.days=[];
+      this.giorniSelezionati();
+      this.isReady=true;
+      this.calendar.updateTodaysDate();
+    }, err => {
+      window.alert("Errore, non è stato possibile recuperare gli eventi");
+    })
+  }
+
+  giorniSelezionati(){
+    this.eventi.forEach(ev => {
+      if(!this.days.includes(ev.day)){
+        this.days.push(ev.day);
+      }
+    });
+
   }
 
   cambioSettore(event:any){
@@ -35,7 +69,7 @@ export class CalendarioComponent implements OnInit {
 
   creaEvento(date?:any){
     if(date!=undefined){
-      console.log("data selezionata", event);
+      console.log("data selezionata", date);
       this.selectedDate=date;
     }
     const dialogRef = this.dialog.open(CreaEventoComponent, {
@@ -48,20 +82,34 @@ export class CalendarioComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
+      this.isReady=false;
+      this.ottieniEventi();
       // salva risultato
 
       // mostra sul calendario
     })
   }
 
+  cambioMese(event:any){
+    
+  }
+
+  cambioMeseCalendar(calendar: MatCalendar<Date>){
+    if(this.isReady && (this.selectedDate.getMonth()!=calendar.activeDate.getMonth())){
+      this.selectedDate.setMonth(calendar.activeDate.getMonth());
+      this.ottieniEventi();
+    }
+   
+  }
 
   dateOccupate () {
-    return (date: Date): MatCalendarCellCssClasses => {
-      if (date.getDate() === 1) {
+   this.cambioMeseCalendar(this.calendar);
+   return (date: Date): MatCalendarCellCssClasses => {
+      if (this.days.includes(date.getDate())) {
         return 'data-occupata';
       } else {
         return '';
       }
-    };
+    };    
   }
 }
