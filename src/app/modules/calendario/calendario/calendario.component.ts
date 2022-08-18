@@ -3,6 +3,7 @@ import { MatCalendar, MatCalendarCellClassFunction, MatCalendarCellCssClasses } 
 import { MatDialog } from '@angular/material/dialog';
 import { CalendarioService } from 'src/app/services/calendario.service';
 import { CreaEventoComponent } from '../crea-evento/crea-evento.component';
+import { InfoEventoComponent } from '../info-evento/info-evento.component';
 
 @Component({
   selector: 'app-calendario',
@@ -65,6 +66,28 @@ export class CalendarioComponent implements OnInit {
 
   cambioSettore(event:any){
     this.settore=event.value;
+    this.ottieniEventi();
+  }
+
+  clickEvento(date?: Date){
+    if(this.days.includes(date.getDate())){
+      this.apriEvento(date);
+    }else{
+      this.creaEvento(date);
+    }
+  }
+
+  apriEvento(date?:Date){
+    let eventiGiorno = this.eventi.filter(e => e.day === date.getUTCDate()+1);
+    console.log(eventiGiorno);
+    // apri dialog info-evento
+    const dialogRef = this.dialog.open(InfoEventoComponent, {
+      width:'800px',
+      data: {
+        eventi: eventiGiorno,
+        settore: this.settore
+      }
+    })
   }
 
   creaEvento(date?:any){
@@ -91,7 +114,7 @@ export class CalendarioComponent implements OnInit {
   }
 
   cambioMese(event:any){
-    
+    this.ottieniEventi();
   }
 
   cambioMeseCalendar(calendar: MatCalendar<Date>){

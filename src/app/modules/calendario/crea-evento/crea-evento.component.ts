@@ -41,7 +41,8 @@ export class CreaEventoComponent implements OnInit {
 
   dataEvento = new FormControl(new Date());
   evento :any = {};
-  
+  recapito:string;
+  recapiti: string[]=[];
 
   constructor(
     public dialogRef: MatDialogRef<CreaEventoComponent>,
@@ -77,6 +78,17 @@ export class CreaEventoComponent implements OnInit {
     }, err => {
       window.alert("Errore, l'incontro non è stato salvato");
     })
+  }
+
+  onRecapitoSubmit(){
+    this.recapiti.push(this.recapito);
+    this.evento.recapiti=this.recapiti;
+    this.recapito='';
+  }
+
+  rimuoviRecapito(index: number){
+    this.recapiti.splice(index,1);
+    this.evento.recapiti=this.recapiti;
   }
 
 }

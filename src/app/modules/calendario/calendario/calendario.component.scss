@@ -8,7 +8,7 @@
 }
 
 .body-calendario{
-    margin: 5% auto;
+    margin: 2% auto;
 }
 
 ::ng-deep.data-occupata{
@@ -21,4 +21,12 @@
 
 ::ng-deep.mat-calendar-body-selected{
     background-color: aquamarine;
+}
+
+.calendario-legenda{
+    display: flex;
+    align-items: center;
+    #calendario-legenda-text{
+        margin-left: 2%;
+    }
 }

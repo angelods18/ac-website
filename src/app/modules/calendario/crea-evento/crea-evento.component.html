@@ -11,7 +11,8 @@
         </div>
         <div class="evento-ora" fxFlex="row">
             <mat-form-field appearance="fill">
-                <input matInput placeholder="Orario" class="input-ora" aria-label="24hr format" [ngxTimepicker]="fullTime" [format]="24" [(ngModel)]="evento.ora" readonly>
+                <mat-label>Orario</mat-label>
+                <input matInput class="input-ora" aria-label="24hr format" [ngxTimepicker]="fullTime" [format]="24" [(ngModel)]="evento.ora" readonly>
                 <mat-icon id="ora-icon">access_time</mat-icon>
                 <ngx-material-timepicker #fullTime [timepickerClass]="'orologio-class'"></ngx-material-timepicker>
             </mat-form-field>
@@ -23,21 +24,36 @@
             </mat-form-field>
         </div>
     </div>
-    
+    <!-- titolo evento  -->
     <div class="titolo-evento" fxLayout="row" fxLayoutAlign="space-between center">
-        <div fxFlex="35">
-            <h3>Titolo</h3>
+        <div>
+            <h4>Titolo</h4>
         </div>
-        <div fxFlex="65">
+        <div id="titolo">
             <mat-form-field appearance="fill" >
                 <mat-label>Titolo</mat-label>
                 <input matInput type="text" placeholder="titolo" [(ngModel)]="evento.titolo">
             </mat-form-field>
         </div>
     </div>
+
+    <!-- luogo-evento -->
+    <div class="luogo-evento" fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <h4>Luogo</h4>
+        </div>
+        <div id="luogo">
+            <mat-form-field appearance="fill" >
+                <mat-label>Luogo</mat-label>
+                <input matInput type="text" placeholder="luogo" [(ngModel)]="evento.luogo">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <!-- descrizione -->
     <div class="descrizione-evento" fxLayout="row" fxLayoutAlign="space-between center">
         <div fxFlex="35">
-            <h3>Descrizione</h3>
+            <h4>Descrizione</h4>
         </div>
         <div fxFlex="65">
             <mat-form-field appearance="fill"  style="width: 400px; white-space: pre-line;">
@@ -47,6 +63,28 @@
         </div>
     </div>
 
+    <!-- recapiti telefonici -->
+    <div class="recapiti-evento" fxLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <h4>Recapiti</h4>
+        </div>
+        <div style="margin-left: 2%">
+            <mat-form-field appearance="fill">
+                <mat-label>Recapiti telefonici</mat-label>
+                <input matInput placeholder="Nome: Telefono INVIO" (keyup.enter)="onRecapitoSubmit()" [(ngModel)]="recapito">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="recapiti-list" fxLayout="row" fxLayoutAlign="space-evenly start">
+        <div *ngFor="let rec of recapiti; index as i" id="recapito">
+            <button mat-raised-button color="primary" (click)="rimuoviRecapito(i)">
+                {{rec}}
+                <mat-icon>close icon</mat-icon>
+            </button>
+        </div>
+    </div>
+
+    <!-- salva evento -->
     <div class="invia-evento">
         <button mat-raised-button color="primary" class="salva-evento"  (click)="creaEvento()">
             Salva evento

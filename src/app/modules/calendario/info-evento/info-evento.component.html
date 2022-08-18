@@ -1,0 +1,43 @@
+<div class="info-evento" fxLayout="column">
+    <div class="locandina-evento">
+        <img src="" alt="Locandina evento">
+    </div>
+    <div class="dati-evento" *ngIf="evento!=undefined">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    {{evento.titolo}}
+                </mat-card-title>
+                <mat-card-subtitle class="evento-subtitle">
+                    <div class="evento-settore">
+                     Settore {{getSettore(evento.settore)}}
+                    </div>
+                    Recapiti:
+                    <div *ngFor="let recapito of evento.recapiti">
+                        {{recapito}}
+                    </div>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content >
+                <div class="evento-body" fxLayout="column">
+                    <div class="evento-data-ora" fxLayout="row">
+                        <div id="evento-data">
+                            <p>Il {{evento.dataEvento}}</p> 
+                            <mat-icon id="ora-icon">calendar_today</mat-icon>
+                        </div>
+                        <div id="evento-ora-durata">
+                            <p>Alle {{evento.ora}}</p> 
+                            <mat-icon id="ora-icon">access_time</mat-icon>
+                        </div>
+                        <div id="evento-ora-durata">
+                           <p> Durata: {{evento.durata}} ore</p> 
+                        </div>
+                    </div>
+                    <div id="evento-descrizione">
+                        {{evento.descrizione}}
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

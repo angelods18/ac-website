@@ -1,6 +1,5 @@
 <div class="page-with-sidebar">
     <div class="page-calendario" fxLayout="column">
-        CALENDARIO 2022/2023
         <div class="header-calendario" fxLayout="row" fxLayoutAlign="space-between center">
             <div class="titolo-calendario" >
               <mat-form-field appearance="fill">
@@ -19,9 +18,21 @@
               </button>
             </div>
         </div>
+        <div class="calendario-legenda">
+          <mat-icon [ngStyle]="{'color':'#3727e4'}">info</mat-icon> 
+          <span id="calendario-legenda-text"> data con un evento, clicca per aprirlo </span>
+        </div>
+        <div class="calendario-legenda">
+          <mat-icon [ngStyle]="{'color':'aquamarine'}">info</mat-icon> 
+          <span id="calendario-legenda-text"> data attuale o cliccata </span>
+        </div>
+        <div class="calendario-legenda">
+          <mat-icon [ngStyle]="{'color':'white', 'border-radius':'50%', 'background-color':'aqua'}">info</mat-icon>
+          <span id="calendario-legenda-text"> data libera, clicca per inserire un evento </span>
+        </div>
         <div class="body-calendario">
             <mat-card>
-                <mat-calendar  #calendar [selected]="selectedDate" (selectedChange)="creaEvento($event)" [dateClass]="dateOccupate()"
+                <mat-calendar  #calendar [selected]="selectedDate" (selectedChange)="clickEvento($event)" [dateClass]="dateOccupate()"
                     (monthSelected)="cambioMese($event)">
 
                 </mat-calendar>

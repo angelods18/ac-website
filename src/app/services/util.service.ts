@@ -25,4 +25,26 @@ export class UtilService {
     }
     return datePart[2]+'-'+datePart[1]+'-'+datePart[1]+'T00:00:00.000Z';
    }
+
+   getSettoreFromSigla(sigla:string){
+    let sett = '';
+    switch(sigla){
+      case 'ACR':
+        sett= 'ACR';
+        break;
+      case 'GVS':
+        sett='Giovanissimi';
+        break;
+      case 'GVN':
+        sett='Giovani';
+        break;
+      case 'ADULTI':
+        sett='Adulti';
+        break;
+      default:
+        sett=sigla;
+        break;
+    }
+    return sett;
+   }
 }

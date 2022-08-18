@@ -10,7 +10,44 @@
 }
 
 .titolo-evento{
-    margin-top:5%;
+    margin-top:3%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    #titolo{
+        width: 50%;
+        margin-left: 2%;
+        ::ng-deep.mat-form-field{
+            width: 100%;
+        }
+    }   
+}
+.luogo-evento{
+    margin-top:3%;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    #luogo{
+        width: 50%;
+        margin-left: 2%;
+        ::ng-deep.mat-form-field{
+            width: 100%;
+        }
+    }
+}
+
+.recapiti-evento{
+    display: flex;
+    align-items: center;
+}
+
+.recapiti-list{
+    display: flex;
+    margin-left: 5%;
+    font-size: x-small;
+    #recapito{
+        margin-left:2%;
+    }
 }
 
 ::ng-deep ngx-material-timepicker-container{

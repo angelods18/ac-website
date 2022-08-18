@@ -1,0 +1,32 @@
+.locandina-evento{
+    min-height: 200px;
+}
+
+.evento-body{
+    margin-top: 1%;
+    font-size: large;
+    .evento-data-ora{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+
+        #evento-data{
+            display: flex;
+        }
+
+        #evento-ora-durata{
+            display: flex;
+            align-items: center;
+        }
+
+        #ora-icon{
+            margin-left: 5%;
+        }
+
+        p{
+            min-width: fit-content;
+            margin:auto;
+        }
+    }
+}

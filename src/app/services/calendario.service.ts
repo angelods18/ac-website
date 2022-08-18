@@ -29,4 +29,10 @@ export class CalendarioService {
     }
     return this.httpClient.get(url, {params: params});
   }
+
+  getEvento(eventoId:string){
+    let url = this.baseUrl+ 'evento/'+eventoId;
+
+    return this.httpClient.get(url);
+  }
 }
