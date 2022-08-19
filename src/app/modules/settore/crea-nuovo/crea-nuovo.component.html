@@ -85,6 +85,21 @@
                     </mat-form-field>
                 </div>
             </div>
+            <!-- file upload -->
+            <div class="incontro file-incontro">
+                <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+                <div class="file-upload">
+                    <p id="upload-text">Clicca per allegare dei file</p>
+                     <button mat-mini-fab color="primary" class="upload-btn"
+                       (click)="fileUpload.click()" style="margin-left: 2%;">
+                         <mat-icon>attach_file</mat-icon>
+                     </button>
+                 </div>
+                 <div *ngFor="let files of uploadFiles; index as i" class="file-upload">
+                    {{files.filename}}
+                    <mat-icon (click)="rimuoviFile(i)">close icon</mat-icon>
+                 </div>
+            </div>
 
             <button mat-raised-button color="primary" class="salva-incontro"  (click)="creaIncontro()">
                 Salva incontro

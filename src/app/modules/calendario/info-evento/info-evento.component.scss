@@ -2,6 +2,11 @@
     min-height: 200px;
 }
 
+#evento-recapiti{
+    min-width: max-content;
+    margin-left: 5%;
+}
+
 .evento-body{
     margin-top: 1%;
     font-size: large;
@@ -22,6 +27,7 @@
 
         #ora-icon{
             margin-left: 5%;
+            margin-bottom: 2%;
         }
 
         p{
@@ -29,4 +35,29 @@
             margin:auto;
         }
     }
+    
+    .evento-descrizione{
+        margin-top: 2%;
+    }
+}
+
+.frecce{
+    position: relative;
+    display: flex;
+    float: inline-end;
+    align-items: center;
+}
+
+#arrow-left{
+    font-size: 35px;
+    cursor: pointer;
+    margin-bottom: 10%;
+    margin-right: 5%;
+}
+
+#arrow-right{
+    font-size: 35px;
+    cursor: pointer;
+    margin-bottom: 10%;
+    margin-left: 5%;
 }

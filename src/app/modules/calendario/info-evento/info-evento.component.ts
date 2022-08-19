@@ -12,6 +12,7 @@ export class InfoEventoComponent implements OnInit {
 
   evento:any;
   eventiGiorno: any[] = [];
+  index:number=undefined;
 
   constructor(
     public dialogRef: MatDialogRef<InfoEventoComponent>,
@@ -26,14 +27,42 @@ export class InfoEventoComponent implements OnInit {
       if(this.data.eventi!=undefined){
         this.eventiGiorno=this.data.eventi;
         if(this.eventiGiorno.length>0){
-          this.calendarioService.getEvento(this.eventiGiorno[0].id).subscribe((resp:any)=>{
-            console.log("evento", resp);
-            this.evento=resp;
-          })
+          this.index=0;
+          this.getEventoByIndex(this.index);
         }
         
       }
     }
+  }
+
+  getEventoByIndex(index:number){
+    this.calendarioService.getEvento(this.eventiGiorno[this.index].id).subscribe((resp:any)=>{
+      console.log("evento", resp);
+      this.evento=resp;
+    })
+  }
+
+  isBeforeFirst(){  
+    return ((this.index >= this.eventiGiorno.length-1) && this.eventiGiorno.length!=1);
+  }
+
+  isAfterFirst(){
+    return (this.index < this.eventiGiorno.length-1);
+  }
+
+  goLeft(){
+    this.index--;
+    this.getEventoByIndex(this.index);
+  }
+
+  goRight(){
+    this.index++;
+    this.getEventoByIndex(this.index);
+  }
+
+  formatData(data:any){
+    let giorno = data.split('T')[0];
+    return giorno;
   }
 
   getSettore(settore:string){

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
@@ -5,15 +6,15 @@ import { EventEmitter, Injectable } from '@angular/core';
 })
 export class UtilService {
 
-  private baseUrl: string;
   openSidebarEvent = new EventEmitter<boolean>();
   public isSidebarOpen : boolean = false;
+  config: any={};
 
   refreshIntervalEvent = new EventEmitter<boolean>();
 
-  constructor() {
-    this.baseUrl= ""
-   }
+  constructor(
+    private httpClient: HttpClient
+  ) {}
 
    checkLocaleDateString(localDate:string){
     let datePart = localDate.split('/');

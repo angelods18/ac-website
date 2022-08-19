@@ -33,3 +33,16 @@
 .salva-incontro{
     font-size: large;
 }
+
+.file-input{
+    display: none;
+}
+
+.file-upload{
+    display: flex;
+    align-items: center;
+    #upload-text{
+        min-width: fit-content;
+        margin: 0px 2% 0px 0px;
+    }
+}

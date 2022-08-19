@@ -1,15 +1,17 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { AppConfigService } from './app-config.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CalendarioService {
 
-  baseUrl: string = "http://localhost:8080/";
+  baseUrl: string = this.appConfig.baseUrl;
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private appConfig: AppConfigService
   ) { }
 
   salvaEvento(evento:any){

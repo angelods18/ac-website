@@ -20,7 +20,7 @@ export class CalendarioComponent implements OnInit {
   public page: number=0;
   public size: number=10;
   settori = [
-    "ACR", "GVS", "GVN", "ADULTI"
+    "TUTTI","ACR", "GVS", "GVN", "ADULTI"
   ];
   selectedDate = new Date();
   days: number[]= [];
@@ -41,7 +41,7 @@ export class CalendarioComponent implements OnInit {
   ottieniEventi(){
     this.eventi=[];
     this.calendarioService.ottieniEventi({
-      settore: this.settore,
+      settore: this.settore!="TUTTI"?this.settore:null,
       month: this.selectedDate.getMonth()+1
     }).subscribe( (resp:any[]) => {
       console.log("resp", resp);
