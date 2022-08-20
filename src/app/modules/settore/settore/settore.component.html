@@ -29,7 +29,7 @@
     <!-- incontri -->
     <div class="body-settore" fxLayout="column">
         <div class="card-incontro" *ngFor="let incontro of incontri">
-          <app-settore-card [incontro]="incontro"></app-settore-card>
+          <app-settore-card [incontro]="incontro" [settore]="settore"></app-settore-card>
         </div>
     </div>
     <div class="body-settore" *ngIf="incontri==null || incontri == undefined || incontri.length==0">

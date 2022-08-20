@@ -1,4 +1,19 @@
 <div class="crea-evento" fxLayout="column">
+    <!-- file upload -->
+    <div class="evento file-evento">
+        <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
+        <div class="file-upload">
+            <p id="upload-text">Clicca per allegare una locandina</p>
+             <button mat-mini-fab color="primary" class="upload-btn"
+               (click)="fileUpload.click()" style="margin-left: 2%;">
+                 <mat-icon>attach_file</mat-icon>
+             </button>
+         </div>
+         <div *ngIf="file!=undefined" class="file-upload">
+            {{file.filename}}
+            <mat-icon (click)="rimuoviFile()">close icon</mat-icon>
+         </div>
+    </div>
     <div class="data-evento" fxLayout="row">
         <div>
             <mat-form-field appearance="fill">

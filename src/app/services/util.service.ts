@@ -24,7 +24,8 @@ export class UtilService {
     if(datePart[1].length===1){
       datePart[1]='0'+datePart[1];
     }
-    return datePart[2]+'-'+datePart[1]+'-'+datePart[1]+'T00:00:00.000Z';
+    return datePart[2]+'-'+datePart[1]+'-'+datePart[0]+'T00:00:00.000Z';
+
    }
 
    getSettoreFromSigla(sigla:string){

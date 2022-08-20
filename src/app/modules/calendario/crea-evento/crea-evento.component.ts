@@ -43,6 +43,8 @@ export class CreaEventoComponent implements OnInit {
   evento :any = {};
   recapito:string;
   recapiti: string[]=[];
+  fileName: string;
+  file:any;
 
   constructor(
     public dialogRef: MatDialogRef<CreaEventoComponent>,
@@ -56,8 +58,9 @@ export class CreaEventoComponent implements OnInit {
       console.log("data selezionata in ingresso", this.data);
       if(this.data.date!=undefined){
         this.dataEvento.setValue(this.data.date);
-        let dateUTC = moment.utc(this.dataEvento.value).local().toDate();
+        let dateUTC = moment.utc(this.data.date).local().toDate();
         this.evento.dataEvento=this.utilService.checkLocaleDateString(dateUTC.toLocaleDateString());
+        console.log("data evento", this.evento.dataEvento);
       }
       this.evento.settore=this.data.settore;
     }
@@ -67,7 +70,7 @@ export class CreaEventoComponent implements OnInit {
     let dateUTC = moment.utc(this.dataEvento.value).local().toDate();
     this.evento.dataEvento=this.utilService.checkLocaleDateString(dateUTC.toLocaleDateString());
     
-    console.log(this.evento.dataEvento);
+    console.log("data evento", this.evento.dataEvento);
   }
 
 
@@ -75,8 +78,25 @@ export class CreaEventoComponent implements OnInit {
     console.log(this.evento);
     this.calendarioService.salvaEvento(this.evento).subscribe((resp:any) => {
       console.log(resp);
+      this.uploadFile(resp.id);
     }, err => {
       window.alert("Errore, l'incontro non è stato salvato");
+    })
+  }
+
+  uploadFile(incontroId: string){
+    const formData = new FormData();
+   
+    formData.append("file", this.file.file);
+    
+    this.calendarioService.salvaLocandina(incontroId, formData).subscribe((resp:any) => {
+      console.log("risposta salva locandina",resp);
+      window.alert("Evento inserito con successo");
+      setTimeout(() => {
+        this.dialogRef.close();
+      }, 2000);
+    }, err => {
+      window.alert("Caricamento locandina fallito");
     })
   }
 
@@ -89,6 +109,21 @@ export class CreaEventoComponent implements OnInit {
   rimuoviRecapito(index: number){
     this.recapiti.splice(index,1);
     this.evento.recapiti=this.recapiti;
+  }
+
+  onFileSelected(input){
+    const file: File = input.target.files[0];
+    if(file){
+      this.fileName=file.name;
+      this.file = {
+        file: file,
+        filename: this.fileName
+      }
+    }
+  }
+
+  rimuoviFile(){
+    this.file=undefined;
   }
 
 }

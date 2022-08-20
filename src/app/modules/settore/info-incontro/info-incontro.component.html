@@ -1,0 +1,39 @@
+<div class="info-incontro" fxLayout="column">
+    <div *ngFor="let allegato of incontro.allegati" class="allegati-incontro">
+        {{allegato.filename}}
+        <mat-icon> attach_file</mat-icon>
+    </div>
+    <div class="dati-incontro" *ngIf="incontro!=undefined">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    {{incontro.titolo}}
+                </mat-card-title>
+                <mat-card-subtitle class="incontro-subtitle">
+                    <div class="incontro-settore">
+                     Settore {{getSettore(incontro.settore)}}
+                    </div>
+                    <div class="incontro-obiettivo">
+                        {{incontro.obiettivo}}
+                    </div>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <div class="incontro-body" fxLayout="column">
+                    <div class="incontro-gruppo-info" fxLayout="row">
+                        <div id="incontro-partecipanti">
+                            <p>Partecipanti: {{incontro.partecipanti}}</p> 
+                            <mat-icon id="people-icon">people</mat-icon>
+                        </div>
+                        <div id="incontro-eta">
+                           <p> Fascia d'età: {{incontro.eta}} anni</p> 
+                        </div>
+                    </div>
+                    <div class="incontro-descrizione">
+                        {{incontro.descrizione}}
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

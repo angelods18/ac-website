@@ -37,4 +37,10 @@ export class CalendarioService {
 
     return this.httpClient.get(url);
   }
+
+  salvaLocandina(eventoId: string, file: FormData){
+    let url = this.baseUrl + "evento/"+eventoId+"/salva-locandina";
+
+    return this.httpClient.post(url, file);
+  }
 }

@@ -9,6 +9,8 @@ import { CreaNuovoComponent } from './crea-nuovo/crea-nuovo.component';
 import { SettoreCardComponent } from './settore-card/settore-card.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { InfoIncontroComponent } from './info-incontro/info-incontro.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const routes: Routes =[
   {
@@ -24,7 +26,8 @@ const routes: Routes =[
   declarations: [
     SettoreComponent,
     CreaNuovoComponent,
-    SettoreCardComponent
+    SettoreCardComponent,
+    InfoIncontroComponent
   ],
   imports: [
     CommonModule,
@@ -32,7 +35,8 @@ const routes: Routes =[
     RouterModule.forChild(routes),
     FlexModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDialogModule
   ]
 })
 export class SettoreModule { }

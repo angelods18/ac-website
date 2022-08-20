@@ -32,4 +32,10 @@ export class IncontroService {
 
     return this.httpClient.post(url, files);
   }
+
+  getIncontro(incontroId:string){
+    let url = this.baseUrl + "incontro/"+incontroId;
+
+    return this.httpClient.get(url);
+  }
 }
