@@ -6,7 +6,7 @@
         <mat-icon id="arrow-right" *ngIf="isAfterFirst()" (click)="goRight()">keyboard_arrow_right</mat-icon>
     </div>
     <div class="locandina-evento">
-        <img src="" alt="Locandina evento">
+        <img [src]="getLocandina()" alt="Locandina evento">
     </div>
     <div class="dati-evento" *ngIf="evento!=undefined">
         <mat-card>

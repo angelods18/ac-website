@@ -1,0 +1,62 @@
+.locandina-incontro{
+    min-height: 200px;
+}
+
+::ng-deep .mat-card-title{
+    font-size: 35px !important;
+    color: #3f51b5;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.incontro-obiettivo{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top:2%;
+    font-size: medium;
+    font-weight: bold;
+    color: #3f51b5;
+    font-style: italic;
+}
+
+.allegati-incontro{
+    display: flex;
+    align-items: center;
+    min-width: max-content;
+    margin-top: 2%;
+    margin-left: 2%;
+}
+
+.incontro-body{
+    margin-top: 1%;
+    font-size: large;
+    .incontro-gruppo-info{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 80%;
+
+        #incontro-partecipanti{
+            display: flex;
+        }
+
+        #incontro-eta, #incontro-descrizione{
+            display: flex;
+            align-items: center;
+        }
+
+        #people-icon{
+            margin-left: 5%;
+            margin-bottom: 2%;
+        }
+
+        p{
+            min-width: fit-content;
+            margin:auto;
+        }
+    }
+    
+    .incontro-descrizione{
+        margin-top: 2%;
+    }
+}

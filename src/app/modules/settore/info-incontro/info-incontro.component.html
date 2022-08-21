@@ -1,8 +1,5 @@
 <div class="info-incontro" fxLayout="column">
-    <div *ngFor="let allegato of incontro.allegati" class="allegati-incontro">
-        {{allegato.filename}}
-        <mat-icon> attach_file</mat-icon>
-    </div>
+   
     <div class="dati-incontro" *ngIf="incontro!=undefined">
         <mat-card>
             <mat-card-header>
@@ -10,11 +7,15 @@
                     {{incontro.titolo}}
                 </mat-card-title>
                 <mat-card-subtitle class="incontro-subtitle">
-                    <div class="incontro-settore">
+                    <div class="incontro-settore" style="margin-top: 5%;">
                      Settore {{getSettore(incontro.settore)}}
                     </div>
                     <div class="incontro-obiettivo">
                         {{incontro.obiettivo}}
+                    </div>
+                    <div *ngFor="let allegato of incontro.allegati" class="allegati-incontro">
+                        {{allegato.filename}}
+                        <mat-icon> attach_file</mat-icon>
                     </div>
                 </mat-card-subtitle>
             </mat-card-header>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
+import { AppConfigService } from './app-config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,13 @@ export class UtilService {
   openSidebarEvent = new EventEmitter<boolean>();
   public isSidebarOpen : boolean = false;
   config: any={};
+  baseUrl: string = this.appConfig.baseUrl;
 
   refreshIntervalEvent = new EventEmitter<boolean>();
 
   constructor(
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private appConfig: AppConfigService
   ) {}
 
    checkLocaleDateString(localDate:string){
@@ -48,5 +51,11 @@ export class UtilService {
         break;
     }
     return sett;
+   }
+
+   getMedia(mediaId: string){
+    let url = this.baseUrl + "media/"+ mediaId;
+    // return this.httpClient.get(url);
+    return url;
    }
 }

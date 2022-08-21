@@ -35,6 +35,15 @@ export class InfoEventoComponent implements OnInit {
     }
   }
 
+  getLocandina(){
+    if(this.evento!=undefined &&this.evento.locandina!=null && 
+      this.evento.locandina!=undefined && this.evento.locandina.length>0) {
+      return this.utilService.getMedia(this.evento.locandina[0].id);
+    }else{
+      return null;
+    }
+  }
+
   getEventoByIndex(index:number){
     this.calendarioService.getEvento(this.eventiGiorno[this.index].id).subscribe((resp:any)=>{
       console.log("evento", resp);
