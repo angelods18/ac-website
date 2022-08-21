@@ -1,5 +1,6 @@
 import { HttpBackend, HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,20 @@ export class AppConfigService {
   }
 
   loadAppConfig(){
-    return this.http.get('/assets/config.json')
+    if(environment.production){
+      return this.http.get('/assets/config-prod.json')
       .toPromise()
       .then(data => {
           this.appConfig = data;
       });
+    }else{
+      return this.http.get('/assets/config.json')
+      .toPromise()
+      .then(data => {
+          this.appConfig = data;
+      });
+    }
+    
   }
 
   get diocesi() {
