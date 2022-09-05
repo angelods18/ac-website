@@ -8,11 +8,12 @@ import { Router } from '@angular/router';
 })
 export class HomepageComponent implements OnInit {
 
+  breakpoint: any = 1;
 
    tiles: Tile[] = [
-    {text: 'ACR', cols: 1, rows: 1, color: 'lightblue'},
+    {text: 'ACR', cols: 1, rows: 1, color: 'lightblue', background:'/assets/images/acr.jpg'},
     {text: 'GVS', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'GVN', cols: 1, rows: 1, color: 'lightpink'},
+    {text: 'GVN', cols: 1, rows: 1, color: 'lightpink', background:'/assets/images/gvn.jpg'},
     {text: 'ADULTI', cols: 1, rows: 1, color: '#DDBDF1'},
   ];
 
@@ -21,15 +22,21 @@ export class HomepageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth < 1000) ? 1 : 3;
   }
 
   apriSettore(settore: string){
     this.router.navigate(['/settore/'+ settore]);
   }
+
+  onResize(){
+    this.breakpoint = (window.innerWidth < 1000) ? 1 : 3;
+  }
 }
 
 export interface Tile {
-  color: string;
+  color?: string;
+  background?: string;
   cols: number;
   rows: number;
   text: string;

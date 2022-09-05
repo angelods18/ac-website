@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { AppConfigService } from './app-config.service';
 
@@ -57,5 +57,13 @@ export class UtilService {
     let url = this.baseUrl + "media/"+ mediaId;
     // return this.httpClient.get(url);
     return url;
+   }
+
+   downloadMedia(mediaId: string){
+      // const options = { responseType: 'blob' as 'json', observe: 'body' };
+
+    let url = this.baseUrl + "media/"+ mediaId;
+    return this.httpClient.request<Blob>('GET', url, {responseType:'blob' as 'json'});
+    
    }
 }

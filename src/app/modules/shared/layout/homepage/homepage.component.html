@@ -1,7 +1,7 @@
 <div class="page-container">
-  <mat-grid-list id="settori" cols="2" rowHeight="100px">
+  <mat-grid-list id="settori" [cols]="breakpoint" (window:resize)="onResize()" rowHeight="200px"  [gutterSize]="'20px'">
     <mat-grid-tile *ngFor="let tile of tiles" [id]="tile.text" [colspan]="tile.cols" [rowspan]="tile.rows"
-      [style.background]="tile.color" (click)="apriSettore(tile.text)">
+    (click)="apriSettore(tile.text)">
       {{tile.text}}
     </mat-grid-tile>
   </mat-grid-list>

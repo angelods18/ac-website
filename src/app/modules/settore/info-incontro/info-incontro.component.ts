@@ -34,4 +34,14 @@ export class InfoIncontroComponent implements OnInit {
     return this.utilService.getSettoreFromSigla(settore);
   }
 
+  openFile(file:any){
+   this.utilService.downloadMedia(file.id).subscribe(
+    data => {
+      var file = new Blob([data])
+      const fileUrl = URL.createObjectURL(file);
+      window.open(fileUrl, '_blank')
+    }
+   )
+  }
+
 }

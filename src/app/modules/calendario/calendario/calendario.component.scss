@@ -9,13 +9,16 @@
 
 .body-calendario{
     margin: 2% auto;
+    min-width: 300px;
+    max-width: 50%;
 }
 
 ::ng-deep.data-occupata{
-    background-color: #3727e4;
+  
     border-radius: 100%;
     .mat-calendar-body-cell-content{
-        color: white;
+        background-color: #3727e4;
+        color: rgb(255, 255, 255);
     }
 }
 

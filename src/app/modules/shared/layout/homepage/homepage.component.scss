@@ -4,17 +4,34 @@
 
 #settori {
   margin-top: 5%;
+  display: flex;
 }
 
 #ACR,
 #GVS,
 #GVN,
 #ADULTI {
-  height: 100% !important;
+  min-height: 200px !important;
   cursor: pointer;
+  background-size: auto 100%;
 }
 
-#GVN,
-#ADULTI {
-  margin-top: 10% !important;
+#ACR{
+  background-image: url("/assets/images/acr.jpg");
+  background-color: lightblue;
+}
+
+#GVS{
+  background-image: url("/assets/images/gvs.jpg");
+  background-color: lightgreen;
+}
+
+#GVN{
+  background-image: url("/assets/images/gvn.jpg");
+  background-color: lightblue;
+}
+
+#ADULTI{
+  background-image: url("/assets/images/adulti.jpg");
+  background-color: darkkhaki;
 }

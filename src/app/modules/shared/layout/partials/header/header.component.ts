@@ -36,6 +36,10 @@ export class HeaderComponent implements OnInit {
     return this.appConfig.diocesi;
   }
 
+  goToHomepage(){
+    this.route.navigate(['/']);
+  }
+
   ngOnDestroy(): void {
     this._unsubscribeAll.next(null);
     this._unsubscribeAll.complete();
