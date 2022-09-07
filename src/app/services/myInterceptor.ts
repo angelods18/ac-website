@@ -14,7 +14,9 @@ export class MyInterceptor implements HttpInterceptor {
     let req = httpRequest.clone({
       headers: httpRequest.headers.append("Diocesi", this.appConfig.diocesi)
     });
-    console.log(httpRequest.url);
+    
+    console.log("HEADERS", req.headers);
+    console.log("URL REQUEST", httpRequest.url);
     return next.handle(req);
   }
 }

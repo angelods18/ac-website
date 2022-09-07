@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IncontroService } from 'src/app/services/incontro.service';
+import { InsertCredentialsComponent } from '../../shared/dialog/insert-credentials/insert-credentials.component';
 
 @Component({
   selector: 'app-crea-nuovo',
@@ -20,7 +22,8 @@ export class CreaNuovoComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private incontroService: IncontroService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -41,13 +44,21 @@ export class CreaNuovoComponent implements OnInit {
   }
 
   creaIncontro(){
-    console.log("request", this.incontro);
-    this.incontroService.salvaIncontro(this.incontro).subscribe((resp:any) => {
-      console.log(resp);
-      this.uploadFile(resp.id);
-    }, err => {
-      window.alert("Inserimento incontro non riuscito, riprovare");
-    });
+    const dialogRef = this.dialog.open(InsertCredentialsComponent, {
+      width:'450px'
+    })
+    dialogRef.afterClosed().subscribe(data => {
+      console.log("data from dialog", data);
+      console.log("request", this.incontro);
+      this.incontroService.salvaIncontro(this.incontro, data).subscribe((resp:any) => {
+        console.log(resp);
+        if(this.uploadFiles!=undefined && this.uploadFiles.length>0){
+          this.uploadFile(resp.id);
+        }
+      }, err => {
+        window.alert("Inserimento incontro non riuscito, riprovare");
+      });
+    })
   }
 
   uploadFile(incontroId: string){

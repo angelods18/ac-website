@@ -12,13 +12,15 @@ import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule} from '@angular/material/button'
 import { HttpClientModule } from '@angular/common/http';
+import { InsertCredentialsComponent } from './dialog/insert-credentials/insert-credentials.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     SidebarComponent,
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    InsertCredentialsComponent
   ],
   imports: [
     CommonModule,

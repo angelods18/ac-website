@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AppConfigService } from './app-config.service';
 
@@ -14,10 +14,15 @@ export class CalendarioService {
     private appConfig: AppConfigService
   ) { }
 
-  salvaEvento(evento:any){
+  salvaEvento(evento:any, credentials:any){
     let url = this.baseUrl + 'evento/salva-evento';
-
-    return this.httpClient.post(url, evento);
+    let cred = credentials.username+":"+credentials.password;
+    const options = {
+      headers: new HttpHeaders({
+        'authorization': 'Basic '+btoa(''+cred)
+      })
+    }
+    return this.httpClient.post(url, evento, options);
   }
 
   ottieniEventi(request?:any){

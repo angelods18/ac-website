@@ -1,12 +1,13 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS } from '@angular/material-moment-adapter';
 import { MatCalendarCellCssClasses } from '@angular/material/datepicker';
 import { CalendarioService } from 'src/app/services/calendario.service';
 import * as moment from 'moment';
 import { UtilService } from 'src/app/services/util.service';
+import { InsertCredentialsComponent } from '../../shared/dialog/insert-credentials/insert-credentials.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -50,7 +51,8 @@ export class CreaEventoComponent implements OnInit {
     public dialogRef: MatDialogRef<CreaEventoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private calendarioService: CalendarioService,
-    private utilService: UtilService
+    private utilService: UtilService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -75,12 +77,21 @@ export class CreaEventoComponent implements OnInit {
 
 
   creaEvento(){
-    console.log(this.evento);
-    this.calendarioService.salvaEvento(this.evento).subscribe((resp:any) => {
-      console.log(resp);
-      this.uploadFile(resp.id);
-    }, err => {
-      window.alert("Errore, l'incontro non è stato salvato");
+    const dialogRef = this.dialog.open(InsertCredentialsComponent, {
+      width:'450px'
+    })
+    dialogRef.afterClosed().subscribe(data => {
+      console.log("data from dialog", data);
+     
+      console.log(this.evento);
+      this.calendarioService.salvaEvento(this.evento, data).subscribe((resp:any) => {
+        console.log(resp);
+        if(this.file!=undefined){
+          this.uploadFile(resp.id);
+        }
+      }, err => {
+        window.alert("Errore, l'incontro non è stato salvato");
+      })
     })
   }
 
