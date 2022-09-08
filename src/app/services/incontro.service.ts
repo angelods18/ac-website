@@ -45,4 +45,10 @@ export class IncontroService {
 
     return this.httpClient.get(url);
   }
+
+  getTags(tag:string){
+    let url = this.baseUrl + "incontro/tags?tag="+tag;
+
+    return this.httpClient.get(url);
+  }
 }

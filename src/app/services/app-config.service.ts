@@ -50,4 +50,14 @@ export class AppConfigService {
     }
     return this.appConfig.baseUrl;
   }
+
+  getTagsPerSettore(settore: string){
+    if (!this.appConfig) {
+      throw Error('Config file not loaded!');
+    }
+    if (this.appConfig.mode == "dev") {
+        return "http://localhost:8080"
+    }
+    return this.appConfig.paroleChiave[settore];
+  }
 }

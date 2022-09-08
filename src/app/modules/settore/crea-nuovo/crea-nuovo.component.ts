@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AppConfigService } from 'src/app/services/app-config.service';
 import { IncontroService } from 'src/app/services/incontro.service';
 import { InsertCredentialsComponent } from '../../shared/dialog/insert-credentials/insert-credentials.component';
+import { map,startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-crea-nuovo',
@@ -18,18 +22,49 @@ export class CreaNuovoComponent implements OnInit {
   };
   fileName:string;
   uploadFiles: any[] = [];
+  initialTags: string[] = [];
+  tagOptions: string[] = [];
+  filterTags: Observable<String[]>;
+  tagControl = new FormControl('');
 
   constructor(
     private activatedRoute: ActivatedRoute,
     private incontroService: IncontroService,
     private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    public appConfig: AppConfigService
   ) { }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((param:any) => {
       this.settore=param.params.settore;
       this.incontro.settore=this.settore;
+      this.initialTags=this.appConfig.getTagsPerSettore(this.settore.toLowerCase());
+      this.tagOptions=this.initialTags;
+      this.filterTags = this.tagControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value || '')),
+      );
+    })
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.tagOptions.filter(option => option.toLowerCase().includes(filterValue));
+  }
+
+  getTags(){
+    this.tagOptions=this.initialTags;
+    this.incontroService.getTags(this.tag).subscribe((data:any) => {
+      let tags = [];
+      data.content.forEach(tag => {
+        tags.push(tag.tag)
+      });
+      this.tagOptions = this.tagOptions.concat(tags);
+      this.filterTags = this.tagControl.valueChanges.pipe(
+        startWith(''),
+        map(value => this._filter(value || '')),
+      );
     })
   }
 
@@ -123,7 +158,6 @@ export class CreaNuovoComponent implements OnInit {
         this.incontro.parrocchia==undefined ||
         this.incontro.obiettivo==undefined ||
         this.incontro.descrizione== undefined)
-    console.log("errore", basicValidation);
     return isError || basicValidation;
   }
 }

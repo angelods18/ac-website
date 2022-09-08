@@ -10,26 +10,28 @@
             </span>
         </mat-card-title>
         <mat-card-subtitle class="incontro-subtitle">
-            <div class="incontro-tags">
-                <span *ngFor="let tag of incontro.tags" class="incontro-tag">
-                    #{{tag}}
-                </span>
-            </div>
             <div class="incontro-gruppo-param">
                 <div class="incontro-parrocchia">
-                    Parrocchia: {{incontro.parrocchia}}
+                    Parrocchia: <b>{{incontro.parrocchia}}</b>
                 </div>
                 <div class="incontro-partecipanti">
-                    Partecipanti: {{incontro.partecipanti}}
+                    Partecipanti: <b> {{incontro.partecipanti}}</b>
                 </div>
                 <div class="incontro-eta">
-                    Età: {{incontro.eta}}
+                    Età: <b>{{incontro.eta}}</b>
                 </div>
             </div>   
         </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="incontro-testo">
-        <p>Obiettivo: <b>{{incontro.obiettivo}}</b></p>
+        <div class="info-incontro">
+            <p>Obiettivo: <b>{{incontro.obiettivo}}</b></p>
+            <div class="incontro-tags">
+                <span *ngFor="let tag of incontro.tags" class="incontro-tag">
+                    #{{tag}}
+                </span>
+            </div>
+        </div>
         <p>{{incontro.descrizione}}{{incontro.descrizione}}</p>
     </mat-card-content>
 </mat-card>

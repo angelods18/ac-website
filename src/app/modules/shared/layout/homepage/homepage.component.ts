@@ -11,10 +11,10 @@ export class HomepageComponent implements OnInit {
   breakpoint: any = 1;
 
    tiles: Tile[] = [
-    {text: 'ACR', cols: 1, rows: 1, color: 'aliceblue'},
-    {text: 'GVS', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'GVN', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'ADULTI', cols: 1, rows: 1, color: '#DDBDF1'},
+    {text: 'ACR', cols: 1, rows: 1},
+    {text: 'GVS', cols: 1, rows: 1},
+    {text: 'GVN', cols: 1, rows: 1},
+    {text: 'ADULTI', cols: 1, rows: 1},
   ];
 
   constructor(

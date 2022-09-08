@@ -1,4 +1,19 @@
 {
     "baseUrl": "http://localhost:8080/",
-    "diocesi":"Gaeta"
+    "diocesi":"Gaeta",
+    "paroleChiave":
+    {
+        "acr":[
+            "amici", "citta", "scuola"
+            ],
+        "gvs":[
+            "scuola", "stanza", "strada"
+        ],
+        "gvn":[
+            "ambiente", "citta", "impegno politico"
+        ],
+        "adulti":[
+            "accompagnamento", "spiritualità"
+        ]
+    }
 }

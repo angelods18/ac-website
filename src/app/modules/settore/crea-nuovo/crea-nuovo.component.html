@@ -54,7 +54,15 @@
                 <div class="tag">
                     <mat-form-field appearance="fill" >
                         <mat-label>Parole chiave</mat-label>
-                        <input matInput type="text" placeholder="tag" (keyup.enter)="onTagSubmit()" [(ngModel)]="tag">
+                        <input matInput type="text" placeholder="tag"
+                             (keyup.enter)="onTagSubmit()" [(ngModel)]="tag"
+                             [formControl]="tagControl"
+                             [matAutocomplete]="auto" (ngModelChange)="getTags()">
+                        <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                            <mat-option *ngFor="let option of filterTags | async" [value]="option">
+                                {{option}}
+                            </mat-option>
+                        </mat-autocomplete>
                     </mat-form-field>
                 </div>
             </div>

@@ -12,3 +12,26 @@
 .search-settore{
     visibility: hidden;
 }
+
+.titolo-settore{
+    display: flex;
+    flex: 0 0 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media(max-width: 768px){
+    .sigla-settore{
+        flex:0 0 100%;
+        order:2;
+        max-width: 70%;
+        margin-top:10%;
+    }
+}
+
+.crea-button{
+    flex: 0 0 100%;
+    order: 1;
+    max-width: fit-content;
+}

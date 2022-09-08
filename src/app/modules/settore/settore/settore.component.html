@@ -2,7 +2,7 @@
   <div class="page-settore" fxLayout="column">
     <div class="header-settore" fxLayout="row" fxLayoutAlign="space-between center">
       <div class="titolo-settore" >
-        <mat-form-field appearance="fill">
+        <mat-form-field appearance="fill" class="sigla-settore">
           <mat-label>Settore</mat-label>
           <mat-select [(value)]="settore" (selectionChange)="cambioSettore($event)">
             <mat-option *ngFor="let sett of settori" [value]="sett">
@@ -10,12 +10,12 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
-      </div>
-      <div class="search-button">
-        <button mat-raised-button color="primary" (click)="apriCreaIncontro()">
-          Crea nuovo
-          <mat-icon id="close-icon">close icon</mat-icon>
-        </button>
+        <div class="crea-button">
+          <button mat-raised-button color="primary" (click)="apriCreaIncontro()">
+            Crea nuovo
+            <mat-icon id="close-icon">close icon</mat-icon>
+          </button>
+        </div>
       </div>
     </div>
     <!-- filtro -->

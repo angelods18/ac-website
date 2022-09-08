@@ -3,19 +3,33 @@
     align-items: center;
     justify-content: space-between;
 }
-.incontro-tags{
-    min-width: 50%;
+
+.info-incontro{
+    display: flex;
+    justify-content: space-between;
+    .incontro-tags{
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 5%;
+        min-width: 50%;
+    }
+    .incontro-tag{
+        margin-left: 5%;
+        color: #3f51b5;
+    }
 }
-.incontro-tag{
-    margin-left: 5%;
-    color: #3f51b5;
-}
+
 
 .incontro-testo{
     white-space: pre-line;
     font-size: 15px;
     height: 100px;
     overflow: hidden;
+    margin: 0 16px;
+
+    p{
+        margin:5px 0;
+    }
 }
 
 .incontro-gruppo-param{
@@ -44,4 +58,5 @@
     color: white;
     font-style: normal;
     margin-left: 5px;
+    padding: 2px;
 }

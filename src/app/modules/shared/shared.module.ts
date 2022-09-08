@@ -6,8 +6,9 @@ import { HeaderComponent } from './layout/partials/header/header.component';
 import { RouterModule } from '@angular/router';
 import { MatIconModule} from '@angular/material/icon';
 import { HomepageComponent } from './layout/homepage/homepage.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule} from '@angular/material/button';
@@ -27,16 +28,20 @@ import { InsertCredentialsComponent } from './dialog/insert-credentials/insert-c
     RouterModule,
     MatIconModule,
     MatGridListModule,
+    MatAutocompleteModule,
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     HttpClientModule
   ],
   exports:[
     DashboardComponent,
     MatFormFieldModule,
+    MatAutocompleteModule,
     FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
     MatButtonModule
