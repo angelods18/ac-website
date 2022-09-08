@@ -2,9 +2,12 @@
     <mat-card-header>
         <mat-card-title>
             {{incontro.titolo}}
-            <a (click)="apriIncontro()">
-                <mat-icon>open_in_new</mat-icon>
+            <a (click)="apriIncontro()" (mouseover)="showHint()" (mouseout)="hideHint()" style="margin-left: 5px;">
+                <mat-icon  class="apri-incontro" >open_in_new</mat-icon>
             </a>
+            <span *ngIf="hoverTitle" class="apri-incontro-hint">
+                Clicca per aprire il dettaglio
+            </span>
         </mat-card-title>
         <mat-card-subtitle class="incontro-subtitle">
             <div class="incontro-tags">

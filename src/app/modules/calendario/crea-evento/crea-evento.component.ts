@@ -82,16 +82,17 @@ export class CreaEventoComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(data => {
       console.log("data from dialog", data);
-     
       console.log(this.evento);
-      this.calendarioService.salvaEvento(this.evento, data).subscribe((resp:any) => {
-        console.log(resp);
-        if(this.file!=undefined){
-          this.uploadFile(resp.id);
-        }
-      }, err => {
-        window.alert("Errore, l'incontro non è stato salvato");
-      })
+      if(data!=undefined){
+        this.calendarioService.salvaEvento(this.evento, data).subscribe((resp:any) => {
+          console.log(resp);
+          if(this.file!=undefined){
+            this.uploadFile(resp.id);
+          }
+        }, err => {
+          window.alert("Errore, l'incontro non è stato salvato");
+        })
+      }
     })
   }
 

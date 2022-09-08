@@ -12,6 +12,8 @@ export class SettoreCardComponent implements OnInit {
   @Input() incontro: any;
   @Input() settore: string;
   
+  hoverTitle:boolean;
+
   constructor(
     public dialog: MatDialog
   ) { }
@@ -29,4 +31,14 @@ export class SettoreCardComponent implements OnInit {
       }
     })
   }
+
+  showHint(){
+    console.log("mouse hover")
+    this.hoverTitle=true;
+  }
+
+  hideHint(){
+    this.hoverTitle=false;
+  }
+
 }

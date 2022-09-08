@@ -48,16 +48,18 @@ export class CreaNuovoComponent implements OnInit {
       width:'450px'
     })
     dialogRef.afterClosed().subscribe(data => {
-      console.log("data from dialog", data);
-      console.log("request", this.incontro);
-      this.incontroService.salvaIncontro(this.incontro, data).subscribe((resp:any) => {
-        console.log(resp);
-        if(this.uploadFiles!=undefined && this.uploadFiles.length>0){
-          this.uploadFile(resp.id);
-        }
-      }, err => {
-        window.alert("Inserimento incontro non riuscito, riprovare");
-      });
+      if(data!=undefined){
+        console.log("data from dialog", data);
+        console.log("request", this.incontro);
+        this.incontroService.salvaIncontro(this.incontro, data).subscribe((resp:any) => {
+          console.log(resp);
+          if(this.uploadFiles!=undefined && this.uploadFiles.length>0){
+            this.uploadFile(resp.id);
+          }
+        }, err => {
+          window.alert("Inserimento incontro non riuscito, riprovare");
+        });
+      }
     })
   }
 
@@ -90,6 +92,39 @@ export class CreaNuovoComponent implements OnInit {
 
   rimuoviFile(index:number){
     this.uploadFiles.splice(index,1);
+  }
+
+  errore(campo:any){
+    let errore = false;
+    switch(campo){
+      case "titolo":
+        errore = (this.incontro.titolo!=undefined && this.incontro.titolo.length < 3)
+        break;
+      case "parrocchia":
+        errore = (this.incontro.parrocchia!=undefined && this.incontro.parrocchia.length < 10)
+        break;
+      case "obiettivo":
+        errore = (this.incontro.obiettivo!=undefined && this.incontro.obiettivo.length < 20)
+        break;
+      case "descrizione":
+        errore = (this.incontro.descrizione!=undefined && this.incontro.descrizione.length < 100)
+        break;
+    }
+    return errore;
+  }
+
+  validateForm(){
+  
+    let isError = (this.errore('titolo') ||
+        this.errore('parrocchia') ||
+        this.errore('obiettivo') ||
+        this.errore('descrizione'));
+    let basicValidation = (this.incontro.titolo==undefined || 
+        this.incontro.parrocchia==undefined ||
+        this.incontro.obiettivo==undefined ||
+        this.incontro.descrizione== undefined)
+    console.log("errore", basicValidation);
+    return isError || basicValidation;
   }
 }
 

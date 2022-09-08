@@ -11,9 +11,9 @@ export class HomepageComponent implements OnInit {
   breakpoint: any = 1;
 
    tiles: Tile[] = [
-    {text: 'ACR', cols: 1, rows: 1, color: 'lightblue', background:'/assets/images/acr.jpg'},
+    {text: 'ACR', cols: 1, rows: 1, color: 'aliceblue'},
     {text: 'GVS', cols: 1, rows: 1, color: 'lightgreen'},
-    {text: 'GVN', cols: 1, rows: 1, color: 'lightpink', background:'/assets/images/gvn.jpg'},
+    {text: 'GVN', cols: 1, rows: 1, color: 'lightpink'},
     {text: 'ADULTI', cols: 1, rows: 1, color: '#DDBDF1'},
   ];
 
@@ -22,7 +22,7 @@ export class HomepageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.breakpoint = (window.innerWidth < 1000) ? 1 : 3;
+    this.breakpoint = (window.innerWidth < 1000) ? 1 : 2;
   }
 
   apriSettore(settore: string){
@@ -30,7 +30,7 @@ export class HomepageComponent implements OnInit {
   }
 
   onResize(){
-    this.breakpoint = (window.innerWidth < 1000) ? 1 : 3;
+    this.breakpoint = (window.innerWidth < 1000) ? 1 : 2;
   }
 }
 

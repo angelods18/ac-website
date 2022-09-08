@@ -32,4 +32,16 @@
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
     font-style: italic;
+    display: flex !important;
+    align-items: center;
+}
+
+
+.apri-incontro-hint{
+    font-size: 15px;
+    background-color: #09d6fa;
+    border-radius: 5%;
+    color: white;
+    font-style: normal;
+    margin-left: 5px;
 }

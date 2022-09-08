@@ -3,15 +3,18 @@
         <div class="crea-incontro" fxLayout="column" fxLayoutAlign="space-around start">
             <h2>Crea il nuovo incontro</h2>
             <!-- titolo -->
-            <div class="titolo-incontro" fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxFlex="35">
-                    <h3>Titolo</h3>
+            <div class="titolo-incontro" fxLayout="row">
+                <div style="min-width: fit-content; margin-right: 7%;">
+                    <h3>Titolo *</h3>
                 </div>
-                <div fxFlex="65">
+                <div>
                     <mat-form-field appearance="fill" >
-                        <mat-label>Titolo</mat-label>
+                        <mat-label>Titolo *</mat-label>
                         <input matInput type="text" placeholder="titolo" [(ngModel)]="incontro.titolo">
                     </mat-form-field>
+                </div>
+                <div *ngIf="errore('titolo')" style="min-width: fit-content ;margin-left: 7%; color:red;">
+                    Il titolo deve avere almeno 3 caratteri
                 </div>
             </div>
             <!-- descrizione gruppo -->
@@ -34,9 +37,12 @@
                     </div>
                     <div class="gruppo-incontro-param">
                         <mat-form-field appearance="fill" >
-                            <mat-label>Parrocchia</mat-label>
+                            <mat-label>Parrocchia *</mat-label>
                             <input matInput type="text" placeholder="parrocchia" [(ngModel)]="incontro.parrocchia">
                         </mat-form-field>
+                        <div *ngIf="errore('parrocchia')" style="position: absolute; color:red">
+                            Devi inserire la parrocchia: città, nome parrocchia
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,24 +70,32 @@
              <!-- obiettivo -->
             <div class="incontro obiettivo-incontro">
                 <div >
-                    <h3>Obiettivo</h3>
+                    <h3>Obiettivo *</h3>
+                </div>
+                <div *ngIf="errore('obiettivo')" style="margin-bottom:2%; color:red">
+                    Inserisci un obiettivo (minimo 20 caratteri)
                 </div>
                 <div>
                     <mat-form-field appearance="fill" style="width: 400px">
                         <mat-label>Obiettivo</mat-label>
-                        <textarea matInput rows="5" cols="40" placeholder="text" [(ngModel)]="incontro.obiettivo"></textarea>
+                        <textarea matInput rows="3" cols="40" placeholder="text" [(ngModel)]="incontro.obiettivo"></textarea>
+                        <mat-error *ngIf="errore('obiettivo')">L'obiettivo deve essere di almeno 20 caratteri</mat-error>
                     </mat-form-field>
                 </div>
             </div>
             <!-- descrizione -->
             <div class="incontro descrizione-incontro">
                 <div>
-                    <h3>Descrizione</h3>
+                    <h3>Descrizione *</h3>
+                </div>
+                <div *ngIf="errore('descrizione')"  style="margin-bottom:2%; color:red">
+                    Inserisci una descrizione (almeno 100 caratteri)
                 </div>
                 <div>
                     <mat-form-field appearance="fill" style="width: 600px">
-                        <mat-label>Descrizione</mat-label>
-                        <textarea matInput rows="5" cols="40" placeholder="text" [(ngModel)]="incontro.descrizione"></textarea>
+                        <mat-label>Descrizione  </mat-label>
+                        <textarea matInput rows="4" cols="40" placeholder="text" [(ngModel)]="incontro.descrizione"></textarea>
+                        <mat-error *ngIf="errore('descrizione')">Inserisci una descrizione di almeno 100 caratteri</mat-error>
                     </mat-form-field>
                 </div>
             </div>
@@ -101,7 +115,7 @@
                  </div>
             </div>
 
-            <button mat-raised-button color="primary" class="salva-incontro"  (click)="creaIncontro()">
+            <button mat-raised-button color="primary" class="salva-incontro"  (click)="creaIncontro()" [disabled]="validateForm()">
                 Salva incontro
                 <mat-icon id="send-icon">send</mat-icon>    
             </button>

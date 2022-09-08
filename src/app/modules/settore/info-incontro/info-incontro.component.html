@@ -15,7 +15,7 @@
                     </div>
                     <div *ngFor="let allegato of incontro.allegati" class="allegati-incontro">
                         {{allegato.filename}}
-                        <mat-icon (click)="openFile(allegato)"> attach_file</mat-icon>
+                        <mat-icon (click)="openFile(allegato)" style="cursor: pointer;"> attach_file</mat-icon>
                     </div>
                 </mat-card-subtitle>
             </mat-card-header>

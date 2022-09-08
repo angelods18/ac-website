@@ -14,24 +14,30 @@
   min-height: 200px !important;
   cursor: pointer;
   background-size: auto 100%;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 #ACR{
-  background-image: url("/assets/images/acr.jpg");
+ // background-image: url("/assets/images/acr.jpg");
   background-color: lightblue;
+  color: red;
 }
 
 #GVS{
-  background-image: url("/assets/images/gvs.jpg");
+  //background-image: url("/assets/images/gvs.jpg");
   background-color: lightgreen;
+  color: chocolate
 }
 
 #GVN{
-  background-image: url("/assets/images/gvn.jpg");
-  background-color: lightblue;
+  //background-image: url("/assets/images/gvn.jpg");
+  background-color: rgb(255, 239, 17);
+  color: blue;
 }
 
 #ADULTI{
-  background-image: url("/assets/images/adulti.jpg");
-  background-color: darkkhaki;
+ // background-image: url("/assets/images/adulti.jpg");
+  background-color: rgb(231, 45, 154);
+  color: yellow;
 }
