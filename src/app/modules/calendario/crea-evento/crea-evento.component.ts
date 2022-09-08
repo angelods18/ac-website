@@ -90,18 +90,18 @@ export class CreaEventoComponent implements OnInit {
             this.uploadFile(resp.id);
           }
         }, err => {
-          window.alert("Errore, l'incontro non è stato salvato");
+          window.alert("Errore, l'evento non è stato salvato");
         })
       }
     })
   }
 
-  uploadFile(incontroId: string){
+  uploadFile(eventoId: string){
     const formData = new FormData();
    
     formData.append("file", this.file.file);
     
-    this.calendarioService.salvaLocandina(incontroId, formData).subscribe((resp:any) => {
+    this.calendarioService.salvaLocandina(eventoId, formData).subscribe((resp:any) => {
       console.log("risposta salva locandina",resp);
       window.alert("Evento inserito con successo");
       setTimeout(() => {
@@ -136,6 +136,35 @@ export class CreaEventoComponent implements OnInit {
 
   rimuoviFile(){
     this.file=undefined;
+  }
+
+  errore(campo:any){
+    let errore = false;
+    switch(campo){
+      case "titolo":
+        errore = (this.evento.titolo!=undefined && this.evento.titolo.length < 3)
+        break;
+      case "orario":
+        errore = (this.evento.orario!=undefined)
+        break;
+      case "luogo":
+        errore = (this.evento.luogo!=undefined && this.evento.luogo.length < 20)
+        break;
+     
+    }
+    return errore;
+  }
+
+  validateForm(){
+  
+    let isError = (this.errore('titolo') ||
+        this.errore('orario') ||
+        this.errore('luogo'));
+    let basicValidation = (this.evento.titolo==undefined || 
+        this.evento.orario==undefined ||
+        this.evento.luogo==undefined)
+    console.log("errore", basicValidation);
+    return isError || basicValidation;
   }
 
 }
