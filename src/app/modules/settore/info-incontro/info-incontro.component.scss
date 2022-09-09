@@ -32,12 +32,22 @@
     
     .incontro-gruppo-info{
         display: flex;
+        flex: 0 0 100%;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         width: 80%;
 
         #incontro-partecipanti{
             display: flex;
+        }
+
+        @media(max-width:768px) {
+            .incontro-eta{
+                flex: 0 0 100%;
+                order: 2;
+                margin-top: 5%;
+            }
         }
 
         #incontro-eta, #incontro-descrizione{

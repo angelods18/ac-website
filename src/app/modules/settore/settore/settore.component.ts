@@ -58,6 +58,7 @@ export class SettoreComponent implements OnInit {
   cambioSettore(event:any){
     console.log(event);
     this.settore=event.value;
+    this.router.navigate(["/settore/"+this.settore])
     this.incontri=[];
     this.riempiListaIncontri();
   }

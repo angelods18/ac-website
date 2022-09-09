@@ -23,10 +23,32 @@
 .tag{
     margin-left: 5%
 }
-
-.gruppo-incontro-param{
-    margin-left: 5%;
+.gruppo-incontro{
+   
+    .gruppo-incontro-param{
+        margin-left: 5%;
+    }
+    @media(max-width:768px) {
+        .gruppo-parametri{
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 100%;
+            flex-wrap: wrap;
+            margin-left: 15%;
+        }
+        #eta{
+            flex:0 0 100%;
+            order: 2;
+            margin-top:2%
+        }
+        #parrocchia{
+            flex: 0 0 100%;
+            order: 3;
+            margin-top:2%;
+        }
+    }
 }
+
 
 #send-icon{
     margin-left:2%

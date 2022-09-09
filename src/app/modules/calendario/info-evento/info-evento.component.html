@@ -28,14 +28,14 @@
                 <div class="evento-body" fxLayout="column">
                     <div class="evento-data-ora" fxLayout="row">
                         <div id="evento-data">
-                            <p>Il {{formatData(evento.dataEvento)}}</p> 
                             <mat-icon id="ora-icon">calendar_today</mat-icon>
+                            <p>Il {{formatData(evento.dataEvento)}}</p> 
                         </div>
-                        <div id="evento-ora-durata">
-                            <p>Alle {{evento.ora}}</p> 
+                        <div id="evento-ora-durata" id="ora">
                             <mat-icon id="ora-icon">access_time</mat-icon>
+                            <p>Alle {{evento.ora}}</p> 
                         </div>
-                        <div id="evento-ora-durata">
+                        <div id="evento-ora-durata" id="durata">
                            <p> Durata: {{evento.durata}} ore</p> 
                         </div>
                     </div>

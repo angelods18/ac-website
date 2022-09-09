@@ -16,6 +16,8 @@
     font-size: large;
     .evento-data-ora{
         display: flex;
+        flex: 0 0 100%;
+        flex-wrap: wrap;
         align-items: center;
         justify-content: space-between;
         width: 80%;
@@ -29,11 +31,10 @@
             align-items: center;
         }
 
-        #ora-icon{
-            margin-left: 5%;
-            margin-bottom: 2%;
+        #ora{
+            display: flex;
+            max-width: fit-content;
         }
-
         p{
             min-width: fit-content;
             margin:auto;
@@ -42,6 +43,19 @@
     
     .evento-descrizione{
         margin-top: 2%;
+    }
+
+    @media(max-width: 768px) {
+        #ora{
+            flex: 0 0 100%;
+            order: 2;
+            margin-top: 2%;
+        }
+        #durata{
+            flex: 0 0 100%;
+            order: 3;
+            margin-top: 2%;
+        }
     }
 }
 

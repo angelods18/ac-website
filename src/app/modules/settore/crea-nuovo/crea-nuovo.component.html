@@ -22,20 +22,20 @@
                 <div style="min-width: 5%;">
                     <h3>Gruppo</h3>
                 </div>
-                <div fxLayout="row">
-                    <div class="gruppo-incontro-param" >
+                <div class="gruppo-parametri" fxLayout="row">
+                    <div class="gruppo-incontro-param" id="numero-partecipanti">
                         <mat-form-field appearance="fill" >
                             <mat-label>N° partecipanti</mat-label>
                             <input matInput type="number" placeholder="n° partecipanti" [(ngModel)]="incontro.partecipanti">
                         </mat-form-field>
                     </div>
-                    <div class="gruppo-incontro-param">
+                    <div class="gruppo-incontro-param" id="eta">
                         <mat-form-field appearance="fill" >
                             <mat-label>Età</mat-label>
                             <input matInput type="text" placeholder="età" [(ngModel)]="incontro.eta">
                         </mat-form-field>
                     </div>
-                    <div class="gruppo-incontro-param">
+                    <div class="gruppo-incontro-param" id="parrocchia">
                         <mat-form-field appearance="fill" >
                             <mat-label>Parrocchia *</mat-label>
                             <input matInput type="text" placeholder="parrocchia" [(ngModel)]="incontro.parrocchia">

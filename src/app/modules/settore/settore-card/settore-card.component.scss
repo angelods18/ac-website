@@ -6,6 +6,8 @@
 
 .info-incontro{
     display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
     justify-content: space-between;
     .incontro-tags{
         display: flex;
@@ -16,6 +18,32 @@
     .incontro-tag{
         margin-left: 5%;
         color: #3f51b5;
+    }
+
+    @media(max-width: 768px) {
+        .incontro-tags{
+            flex: 0 0 100%;
+            order: 2;
+            margin-top:2%;
+            justify-content: flex-start;
+        }
+    }
+}
+
+.incontro-titolo{
+    display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
+    .apri-incontro{
+        cursor: pointer;
+    }
+
+    @media(max-width: 768px) {
+        .apri-incontro-hint{
+            flex: 0 0 100%;
+            order:2;
+            margin-top: 2%;
+        }
     }
 }
 
