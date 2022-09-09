@@ -34,6 +34,13 @@ $ac-theme: mat.define-light-theme((color: (primary: $ac-primary,
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+@media(max-width:768px) {
+  .page-with-sidebar{
+    margin-left:5% !important;
+    margin-right: 10% !important;
+  }
+}
+
 .page-with-sidebar {
   margin-top: 80px;
   margin-left: 15%;
