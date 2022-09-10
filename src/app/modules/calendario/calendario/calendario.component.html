@@ -1,42 +1,53 @@
 <div class="page-with-sidebar">
     <div class="page-calendario" fxLayout="column">
         <div class="header-calendario" fxLayout="row" fxLayoutAlign="space-between center">
-            <div class="titolo-calendario" >
-              <mat-form-field appearance="fill">
-                <mat-label>Settore</mat-label>
-                <mat-select [(value)]="settore" (selectionChange)="cambioSettore($event)">
-                  <mat-option *ngFor="let sett of settori" [value]="sett">
-                    {{sett}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+          <!-- SETTORE E LEGGENDA -->
+          <div class="titolo-calendario" >
+            <mat-form-field appearance="fill">
+              <mat-label>Settore</mat-label>
+              <mat-select [(value)]="settore" (selectionChange)="cambioSettore($event)">
+                <mat-option *ngFor="let sett of settori" [value]="sett">
+                  {{sett}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="calendario-legenda">
+              <mat-icon [ngStyle]="{'color':'#3727e4'}">info</mat-icon> 
+              <span id="calendario-legenda-text"> data con un evento, clicca per aprirlo </span>
             </div>
-            <div class="search-button">
-              <button mat-raised-button color="primary" (click)="creaEvento()">
-                Crea nuovo evento
-                <mat-icon id="close-icon">close icon</mat-icon>
-              </button>
+            <div class="calendario-legenda">
+              <mat-icon [ngStyle]="{'color':'aquamarine'}">info</mat-icon> 
+              <span id="calendario-legenda-text"> data attuale o cliccata </span>
             </div>
-        </div>
-        <div class="calendario-legenda">
-          <mat-icon [ngStyle]="{'color':'#3727e4'}">info</mat-icon> 
-          <span id="calendario-legenda-text"> data con un evento, clicca per aprirlo </span>
-        </div>
-        <div class="calendario-legenda">
-          <mat-icon [ngStyle]="{'color':'aquamarine'}">info</mat-icon> 
-          <span id="calendario-legenda-text"> data attuale o cliccata </span>
-        </div>
-        <div class="calendario-legenda">
-          <mat-icon [ngStyle]="{'color':'white', 'border-radius':'50%', 'background-color':'aqua'}">info</mat-icon>
-          <span id="calendario-legenda-text"> data libera, clicca per inserire un evento </span>
-        </div>
-        <div class="body-calendario">
+            <div class="calendario-legenda">
+              <mat-icon [ngStyle]="{'color':'white', 'border-radius':'50%', 'background-color':'aqua'}">info</mat-icon>
+              <span id="calendario-legenda-text"> data libera, clicca per inserire un evento </span>
+            </div>
+          </div>
+          <!-- CALENDARIO -->
+          <div class="body-calendario">
             <mat-card>
                 <mat-calendar  #calendar [selected]="selectedDate" (selectedChange)="clickEvento($event)" [dateClass]="dateOccupate()"
                     (monthSelected)="cambioMese($event)">
 
                 </mat-calendar>
             </mat-card>
+          </div>
+           <!-- BUTTON CREA -->
+           <div class="search-button">
+            <button mat-raised-button color="primary" (click)="creaEvento()">
+              Crea nuovo evento
+              <mat-icon id="close-icon">close icon</mat-icon>
+            </button>
+          </div>
         </div>
+        
+
+        <!-- CARD - EVENTI-->
+        <mat-grid-list id="eventi" [cols]="breakpoint" (window:resize)="onResize()" rowHeight="170px"  [gutterSize]="'20px'">
+          <mat-grid-tile *ngFor="let evento of listaEventi">
+            <app-evento-card [evento]="evento"></app-evento-card>
+          </mat-grid-tile>
+        </mat-grid-list>
     </div>
 </div>

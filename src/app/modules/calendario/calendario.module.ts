@@ -12,6 +12,7 @@ import { CreaEventoComponent } from './crea-evento/crea-evento.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
 import { InfoEventoComponent } from './info-evento/info-evento.component';
+import { EventoCardComponent } from './evento-card/evento-card.component';
 
 const routes : Routes =[
   {
@@ -23,7 +24,8 @@ const routes : Routes =[
   declarations: [
     CalendarioComponent,
     CreaEventoComponent,
-    InfoEventoComponent
+    InfoEventoComponent,
+    EventoCardComponent
   ],
   imports: [
     CommonModule,

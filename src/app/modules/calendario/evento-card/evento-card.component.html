@@ -1,0 +1,28 @@
+<div class="evento-card">
+    <mat-card id="card">
+        <mat-card-header>
+            <mat-card-title class="evento-titolo" style="color: #3f51b5;">
+                {{evento.titolo}}
+                <a (click)="apriEvento()" (mouseover)="showHint()" (mouseout)="hideHint()" style="margin-left: 5px;">
+                    <mat-icon  class="apri-evento" style="cursor: pointer;">open_in_new</mat-icon>
+                </a>
+                <span *ngIf="hoverTitle" class="apri-evento-hint">
+                    Clicca per aprire il dettaglio
+                </span>
+            </mat-card-title>
+            <mat-card-subtitle class="evento-subtitle" >
+                <div class="evento-gruppo-param">
+                    <div class="evento-luogo">
+                        Luogo: <b style="color: #3f51b5;">{{evento.luogo}}</b>
+                    </div>
+                    <div class="evento-data">
+                        Data: <b style="color: #3f51b5;">{{formatData(evento.dataEvento)}}</b>
+                    </div>
+                </div>   
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="evento-testo" style="overflow-x: hidden; white-space: pre">
+            <p>{{evento.descrizione}}</p>
+        </mat-card-content>
+    </mat-card>
+</div>

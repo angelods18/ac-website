@@ -1,8 +1,23 @@
 .data-evento{
     display: flex;
+    flex: 0 0 100%;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 5%;
     align-items: center;
+
+    @media(max-width:768px) {
+        .evento-ora{
+            flex: 0 0 100%;
+            order: 2;
+            margin-top: 2%;
+        }
+        .evento-durata{
+            flex: 0 0 100%;
+            order: 3;
+            margin-top: 2%;
+        }
+    }
 }
 
 ::ng-deep.mat-form-field-infix{
@@ -76,5 +91,14 @@
     #upload-text{
         min-width: fit-content;
         margin: 0px 2% 0px 0px;
+    }
+}
+
+@media(max-width:768px) {
+    #descrizione{
+        width: 25em !important;
+    }
+    textarea{
+        width:25em;
     }
 }

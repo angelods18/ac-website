@@ -35,7 +35,7 @@
                 Devi inserire l'orario di inizio dell'evento
             </div>
         </div>
-        <div>
+        <div class="evento-durata">
             <mat-form-field appearance="fill" >
                 <mat-label>Durata (ore)</mat-label>
                 <input matInput type="number" placeholder="durata" [(ngModel)]="evento.durata">
@@ -80,7 +80,7 @@
             <h4>Descrizione</h4>
         </div>
         <div fxFlex="65">
-            <mat-form-field appearance="fill"  style="width: 400px; white-space: pre-line;">
+            <mat-form-field appearance="fill"  style="width: 400px; white-space: pre-line;" id="descrizione">
                 <mat-label>Descrizione</mat-label>
                 <textarea matInput rows="5" cols="40" placeholder="text" [(ngModel)]="evento.descrizione"></textarea>
             </mat-form-field>

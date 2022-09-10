@@ -40,6 +40,7 @@ import { InsertCredentialsComponent } from './dialog/insert-credentials/insert-c
     DashboardComponent,
     MatFormFieldModule,
     MatAutocompleteModule,
+    MatGridListModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,

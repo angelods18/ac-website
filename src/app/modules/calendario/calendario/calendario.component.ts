@@ -25,6 +25,8 @@ export class CalendarioComponent implements OnInit {
   selectedDate = new Date();
   days: number[]= [];
   isReady: boolean = false;
+  breakpoint:any = 3;
+  listaEventi: any[] = [];
 
   constructor(
     public dialog: MatDialog,
@@ -35,11 +37,12 @@ export class CalendarioComponent implements OnInit {
     this.settore="GVN";
     console.log(this.selectedDate);
     this.ottieniEventi();
-
+    this.breakpoint = (window.innerWidth < 1000) ? 1 : 3;
   }
 
   ottieniEventi(){
     this.eventi=[];
+    //Eventi per mese selezionato
     this.calendarioService.ottieniEventi({
       settore: this.settore!="TUTTI"?this.settore:null,
       month: this.selectedDate.getMonth()+1
@@ -52,6 +55,11 @@ export class CalendarioComponent implements OnInit {
       this.calendar.updateTodaysDate();
     }, err => {
       window.alert("Errore, non è stato possibile recuperare gli eventi");
+    })
+
+    //Eventi dal momento attuale in poi
+    this.calendarioService.ottieniEventi().subscribe((resp:any[]) => {
+      this.listaEventi=resp;
     })
   }
 
@@ -134,5 +142,9 @@ export class CalendarioComponent implements OnInit {
         return '';
       }
     };    
+  }
+
+  onResize(){
+    this.breakpoint = (window.innerWidth < 1000) ? 1 : 3;
   }
 }
