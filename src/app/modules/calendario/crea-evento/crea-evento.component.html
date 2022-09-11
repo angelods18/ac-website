@@ -107,6 +107,10 @@
 
     <!-- salva evento -->
     <div class="invia-evento">
+        <button mat-button color="warn" (click)="close()">
+            Annulla
+            <mat-icon>close icon</mat-icon>
+        </button>
         <button mat-raised-button color="primary" class="salva-evento"  (click)="creaEvento()" [disabled]="validateForm()">
             Salva evento
             <mat-icon id="send-icon">send</mat-icon>    

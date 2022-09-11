@@ -34,7 +34,7 @@ export class CalendarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.settore="GVN";
+    this.settore="TUTTI";
     console.log(this.selectedDate);
     this.ottieniEventi();
     this.breakpoint = (window.innerWidth < 1000) ? 1 : 3;
@@ -47,7 +47,7 @@ export class CalendarioComponent implements OnInit {
       settore: this.settore!="TUTTI"?this.settore:null,
       month: this.selectedDate.getMonth()+1
     }).subscribe( (resp:any[]) => {
-      console.log("resp", resp);
+      //console.log("resp", resp);
       this.eventi=resp;
       this.days=[];
       this.giorniSelezionati();
@@ -106,8 +106,9 @@ export class CalendarioComponent implements OnInit {
     const dialogRef = this.dialog.open(CreaEventoComponent, {
       width: '800px',
       height: "700px",
+      disableClose: true,
       data: {
-        date: date,
+        date: this.selectedDate,
         settore: this.settore
       }
     });
