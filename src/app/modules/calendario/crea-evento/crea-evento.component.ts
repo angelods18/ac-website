@@ -145,10 +145,10 @@ export class CreaEventoComponent implements OnInit {
         errore = (this.evento.titolo!=undefined && this.evento.titolo.length < 3)
         break;
       case "orario":
-        errore = (this.evento.orario!=undefined)
+        errore = (this.evento.ora==undefined)
         break;
       case "luogo":
-        errore = (this.evento.luogo!=undefined && this.evento.luogo.length < 20)
+        errore = (this.evento.luogo!=undefined && this.evento.luogo.length < 10)
         break;
      
     }
@@ -161,7 +161,7 @@ export class CreaEventoComponent implements OnInit {
         this.errore('orario') ||
         this.errore('luogo'));
     let basicValidation = (this.evento.titolo==undefined || 
-        this.evento.orario==undefined ||
+        this.evento.ora==undefined ||
         this.evento.luogo==undefined)
     console.log("errore", basicValidation);
     return isError || basicValidation;
