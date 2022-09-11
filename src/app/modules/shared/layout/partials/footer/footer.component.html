@@ -1,0 +1,20 @@
+<div class="footer">
+    <mat-icon id="open-icon" *ngIf="!isOpen" (click)="toggleFooter()">play_arrow</mat-icon>
+    <div class="link-social" *ngIf="isOpen">
+        <mat-icon id="close-icon" (click)="toggleFooter()">play_arrow</mat-icon>
+        <div id="profili-social"> 
+            <!-- <mat-icon>open_in_browser</mat-icon> -->
+            <a href="http://www.azionecattolicagaeta.it/web/" target="_blank">
+                <img src="assets/images/web.png" alt="" style="height: 25px;">
+            </a>
+            <a href="https://www.facebook.com/azionecattolicagaeta" target="_blank">
+                 <img src="assets/images/facebook-icon.png" alt="" style="height: 30px;">
+            </a>
+            <a href="" target="_blank">
+                <img src="assets/images/instagram-logo.png" alt="" style="height: 30px;">
+            </a>
+            
+        </div>
+        <div id="profili-descrizione">Profili Azione Cattolica {{diocesi}}</div>
+    </div>
+</div>

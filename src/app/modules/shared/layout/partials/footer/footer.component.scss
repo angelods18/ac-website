@@ -1,0 +1,43 @@
+:host {
+    background-color: #3727e4;
+    display: flex;
+}
+
+.footer{
+    display: flex;
+    background-color: #3727e4;
+    color: white;
+    width: 100%;
+}
+
+#open-icon{
+    rotate: 270deg;
+    margin-right: auto;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+
+.link-social{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    flex-direction: column;
+
+    #close-icon{
+        rotate:90deg;
+        margin-right: auto;
+        margin-left: auto;
+        cursor: pointer;
+    }
+    #profili-social{
+        margin-top:5%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+    }
+    #profili-descrizione{
+        margin-top:1%;
+        display: flex;
+    }
+}

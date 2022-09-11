@@ -14,6 +14,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { InsertCredentialsComponent } from './dialog/insert-credentials/insert-credentials.component';
+import { FooterComponent } from './layout/partials/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { InsertCredentialsComponent } from './dialog/insert-credentials/insert-c
     SidebarComponent,
     HeaderComponent,
     HomepageComponent,
-    InsertCredentialsComponent
+    InsertCredentialsComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,

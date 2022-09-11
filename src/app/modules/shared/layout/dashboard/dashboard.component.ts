@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   openedMenu: boolean = false;
   private _unsubscribeAll: Subject<any> = new Subject();
+  footerHover: any = false;
 
   constructor(
     private _router: Router,
@@ -40,5 +41,13 @@ export class DashboardComponent implements OnInit {
   ngOnDestroy(): void{
     this._unsubscribeAll.next(null);
     this._unsubscribeAll.complete();
+  }
+
+  showFooter(){
+    this.footerHover=true;
+  }
+
+  hintFooter(){
+    this.footerHover=false;
   }
 }
