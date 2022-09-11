@@ -15,6 +15,9 @@ import { MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { InsertCredentialsComponent } from './dialog/insert-credentials/insert-credentials.component';
 import { FooterComponent } from './layout/partials/footer/footer.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { InfoComponent } from './dialog/info/info.component'
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { FooterComponent } from './layout/partials/footer/footer.component';
     HeaderComponent,
     HomepageComponent,
     InsertCredentialsComponent,
-    FooterComponent
+    FooterComponent,
+    InfoComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +40,9 @@ import { FooterComponent } from './layout/partials/footer/footer.component';
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
-    HttpClientModule
+    HttpClientModule,
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   exports:[
     DashboardComponent,
@@ -47,7 +53,8 @@ import { FooterComponent } from './layout/partials/footer/footer.component';
     ReactiveFormsModule,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule,
   ]
 })
 export class SharedModule { }

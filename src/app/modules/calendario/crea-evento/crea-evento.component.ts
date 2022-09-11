@@ -144,9 +144,6 @@ export class CreaEventoComponent implements OnInit {
       case "titolo":
         errore = (this.evento.titolo!=undefined && this.evento.titolo.length < 3)
         break;
-      case "orario":
-        errore = (this.evento.ora==undefined)
-        break;
       case "luogo":
         errore = (this.evento.luogo!=undefined && this.evento.luogo.length < 10)
         break;

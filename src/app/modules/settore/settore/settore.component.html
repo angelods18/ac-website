@@ -25,6 +25,8 @@
         <input matInput type="text" (input)="keypress($event)"
           (keyup.enter)="onSearchSubmit()" [(ngModel)]="search_term">
       </mat-form-field>
+      <!-- <mat-spinner></mat-spinner> -->
+      <mat-spinner [color]="color" mode="indeterminate" [diameter]="30" *ngIf="showSpinner"></mat-spinner>
     </div>
     <!-- incontri -->
     <div class="body-settore" fxLayout="column">

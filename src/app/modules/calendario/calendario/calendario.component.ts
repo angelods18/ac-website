@@ -105,6 +105,7 @@ export class CalendarioComponent implements OnInit {
     }
     const dialogRef = this.dialog.open(CreaEventoComponent, {
       width: '800px',
+      height: "700px",
       data: {
         date: date,
         settore: this.settore

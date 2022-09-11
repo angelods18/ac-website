@@ -60,4 +60,15 @@ export class AppConfigService {
     }
     return this.appConfig.paroleChiave[settore];
   }
+
+  getInfoPerPagine(url: string){
+    console.log(url);
+    if (!this.appConfig) {
+      throw Error('Config file not loaded!');
+    }
+    if (this.appConfig.mode == "dev") {
+        return "http://localhost:8080"
+    }
+    return this.appConfig.infoPagine[url];
+  }
 }

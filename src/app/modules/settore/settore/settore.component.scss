@@ -10,7 +10,12 @@
 }
 
 .search-settore{
-    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    mat-spinner{
+        margin-left: 2%;
+    }
 }
 
 .titolo-settore{
@@ -36,4 +41,6 @@
     max-width: fit-content;
 }
 
-body.waiting * { cursor: wait; }
+.waiting {
+     cursor: wait !important;
+}

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
+import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IncontroService } from 'src/app/services/incontro.service';
 
@@ -18,6 +20,9 @@ export class SettoreComponent implements OnInit {
     "ACR", "GVS", "GVN", "ADULTI"
   ]
   filterTimeout: any = null;
+  color: ThemePalette= "primary";
+  mode: ProgressSpinnerMode = "indeterminate";
+  showSpinner: boolean=false;
 
   constructor(
      private activatedRoute: ActivatedRoute,
@@ -48,11 +53,11 @@ export class SettoreComponent implements OnInit {
 
   keypress(event:any){
     if(this.search_term.length>=3 || this.search_term.length==0){
-      document.body.classList.add("waiting");
+      this.showSpinner=true;
       clearTimeout(this.filterTimeout);
       this.filterTimeout= setTimeout(() => {
         this.onSearchSubmit();
-        document.body.classList.remove("waiting");
+        this.showSpinner=false;
       }, 1000)
     }
   }

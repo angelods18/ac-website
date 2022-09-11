@@ -28,4 +28,16 @@
     z-index: 1;
   }
 
+  .functions{
+    margin-right: 2%;
+    align-items: center;
+    #help-page{
+      background-color: #3727e4;
+      color: white;
+      border: none;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+  }
+
 }
