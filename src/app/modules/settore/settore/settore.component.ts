@@ -17,6 +17,7 @@ export class SettoreComponent implements OnInit {
   settori = [
     "ACR", "GVS", "GVN", "ADULTI"
   ]
+  filterTimeout: any = null;
 
   constructor(
      private activatedRoute: ActivatedRoute,
@@ -32,8 +33,10 @@ export class SettoreComponent implements OnInit {
   }
 
   riempiListaIncontri(){
+
     let params= {
-      settore : this.settore
+      settore : this.settore,
+      search: this.search_term.length >=3 ? this.search_term : ""
     }
     this.incontroService.getIncontri(params, this.page, this.size).subscribe( (resp:any) =>{
       console.log("risposta", resp);
@@ -44,11 +47,20 @@ export class SettoreComponent implements OnInit {
   }
 
   keypress(event:any){
-
+    if(this.search_term.length>=3 || this.search_term.length==0){
+      document.body.classList.add("waiting");
+      clearTimeout(this.filterTimeout);
+      this.filterTimeout= setTimeout(() => {
+        this.onSearchSubmit();
+        document.body.classList.remove("waiting");
+      }, 1000)
+    }
   }
 
   onSearchSubmit(){
-    console.log(this.search_term);
+    console.log("size", this.search_term.length)
+    this.incontri=[];
+    this.riempiListaIncontri();
   }
 
   apriCreaIncontro(){

@@ -10,7 +10,7 @@
 }
 
 .search-settore{
-    visibility: hidden;
+    
 }
 
 .titolo-settore{
@@ -35,3 +35,5 @@
     order: 1;
     max-width: fit-content;
 }
+
+body.waiting * { cursor: wait; }
