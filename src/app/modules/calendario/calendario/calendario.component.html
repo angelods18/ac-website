@@ -44,7 +44,7 @@
         
 
         <!-- CARD - EVENTI-->
-        <mat-grid-list id="eventi" [cols]="breakpoint" (window:resize)="onResize()" rowHeight="170px"  [gutterSize]="'20px'">
+        <mat-grid-list id="eventi" [cols]="breakpoint" (window:resize)="handleWindowWidth()" rowHeight="170px"  [gutterSize]="'20px'">
           <mat-grid-tile *ngFor="let evento of listaEventi">
             <app-evento-card [evento]="evento"></app-evento-card>
           </mat-grid-tile>

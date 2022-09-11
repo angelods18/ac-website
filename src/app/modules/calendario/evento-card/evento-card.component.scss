@@ -14,3 +14,13 @@
 #card{
     height: 120px !important
 }
+
+.elenco-titolo{
+    display: flex;
+    justify-content: center;
+}
+
+.apri-evento{
+    cursor: pointer;
+    transform: scale(0.7);
+}

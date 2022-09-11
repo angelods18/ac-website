@@ -37,7 +37,17 @@ export class CalendarioComponent implements OnInit {
     this.settore="TUTTI";
     console.log(this.selectedDate);
     this.ottieniEventi();
-    this.breakpoint = (window.innerWidth < 1000) ? 1 : 3;
+    this.handleWindowWidth()
+  }
+
+  handleWindowWidth(){
+    this.breakpoint=3;
+    if(window.innerWidth > 1000 && window.innerWidth < 1250) {
+      this.breakpoint= 2;
+    }
+    if(window.innerWidth < 1000) {
+      this.breakpoint= 1;
+    }
   }
 
   ottieniEventi(){
@@ -144,9 +154,5 @@ export class CalendarioComponent implements OnInit {
         return '';
       }
     };    
-  }
-
-  onResize(){
-    this.breakpoint = (window.innerWidth < 1000) ? 1 : 3;
   }
 }

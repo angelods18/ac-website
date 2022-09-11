@@ -34,6 +34,10 @@ export class InfoComponent implements OnInit {
 
   convertiUrl(url){
     let urlSegments: any[] = url.split("/");
+    console.log(urlSegments);
+    if(urlSegments[0]===""){
+      this.urlConvert="homepage";
+    }
     if(urlSegments[0]==="settore" && urlSegments.length == 2){
       this.urlConvert="settore-incontri"
     }

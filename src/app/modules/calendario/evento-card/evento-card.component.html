@@ -2,10 +2,9 @@
     <mat-card id="card">
         <mat-card-header>
             <mat-card-title class="evento-titolo" style="color: #3f51b5;">
-                {{evento.titolo}}
-                <a (click)="apriEvento()" (mouseover)="showHint()" (mouseout)="hideHint()" style="margin-left: 5px;">
-                    <mat-icon  class="apri-evento" style="cursor: pointer;">open_in_new</mat-icon>
-                </a>
+                <span>{{evento.titolo}}</span>
+                <mat-icon  class="apri-evento" (click)="apriEvento()" (mouseover)="showHint()"
+                    (mouseout)="hideHint()">open_in_new</mat-icon>
                 <span *ngIf="hoverTitle" class="apri-evento-hint">
                     Clicca per aprire il dettaglio
                 </span>

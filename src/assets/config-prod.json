@@ -17,6 +17,7 @@
         ]
     },
     "infoPagine":{
+        "homepage":"Questa è l'homepage! Cliccando su un settore troverai una lista di incontri di quel settore",
         "settore-incontri":"In questa pagina trovi tutti gli incontri caricati suddivisi per settore.\n Puoi cambiare il settore usando il selettore sulla sinistra.\nTramite il form puoi filtrare gli incontri con parole chiave o parole nel titolo. Con il pulsante 'Crea nuovo' verrai riportato ad un form per inserire il tuo incontro. Per aprire il dettaglio di un incontro puoi cliccare sull'icona vicino al titolo",
         "crea-incontro":"Compila il form con il contenuto del tuo incontro!\n Cerca di descrivere al meglio i vari passaggi e, se pensi possa essere utile, le caratteristiche del gruppo al quale è rivolto. Una volta completato, l'inserimento dei campi e/o degli allegati, premi su 'Salva incontro' per caricarlo sul sistema",
         "calendario":"Questa pagina mostra un calendario riempito con gli eventi schedulati per la diocesi. Cliccando su una data dove è presente un evento potrai aprire il dettaglio per conoscerne le informazioni. Cambia il selettore per filtrare gli eventi per i vari settori. Cliccando su una data libera oppure sul pulsante 'crea evento' puoi inserire un nuovo evento caricando anche la locandina.\n In basso trovi i prossimi incontri a partire da quello più vicino"

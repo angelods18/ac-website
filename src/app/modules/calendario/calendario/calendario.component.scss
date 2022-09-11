@@ -9,6 +9,33 @@
     justify-content: space-between;
 }
 
+@media(max-width: 1200px) {
+    .header-calendario{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    .titolo-calendario{
+        flex: 0 0 100%;
+        align-items: center;
+        max-width: 50%;
+    }
+    .search-button{
+        flex: 0 0 50%;
+        float: right;
+        display: flex;
+        justify-content: end;
+    }
+    .body-calendario{
+        flex: 0 0 100%;
+        min-width: 40% !important;
+        max-width: 50% !important;
+        margin-left: auto;
+        margin-right: auto;
+        order: 1;
+    }
+}
+
 @media(max-width: 768px) {
     .header-calendario{
         display: flex;
