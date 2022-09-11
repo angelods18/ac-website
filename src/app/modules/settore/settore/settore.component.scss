@@ -2,11 +2,13 @@
     transform: rotate(45deg);
 }
 .body-settore{
-    margin:auto
+    margin-right: auto;
+    margin-left: auto;
+    min-width: 100%;
 }
 
 .card-incontro{
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 
 .search-settore{
@@ -24,6 +26,9 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    .sigla-settore{
+        max-width: 150px;
+    }
 }
 
 @media(max-width: 768px){
