@@ -10,19 +10,17 @@
   background-color: #3727e4;
   margin-left: 2%;
   margin-right: 2%;
+  justify-content: space-between;
+  align-items: center;
 
   .logo {
     cursor: pointer;
     color: white;
     font-size: 24px;
-    line-height: 65px;
-    margin: auto;
   }
 
   .toggle-menu {
-    position: absolute;
     cursor: pointer;
-    margin-top: 20px;
     background-color: transparent;
     border: none;
     color: white;
@@ -35,7 +33,6 @@
       background-color: #3727e4;
       color: white;
       border: none;
-      margin-top: 20px;
       cursor: pointer;
     }
   }

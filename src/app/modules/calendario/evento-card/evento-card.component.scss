@@ -15,12 +15,18 @@
     height: 120px !important
 }
 
-.elenco-titolo{
-    display: flex;
-    justify-content: center;
-}
-
 .apri-evento{
     cursor: pointer;
     transform: scale(0.7);
+}
+
+.apri-evento:hover{
+    transform: scale(0.9);
+}
+
+.mat-card-title{
+    font-size: 25px !important;
+    color: #3f51b5;
+    font-family: sans-serif;
+    font-size:x-large;
 }
