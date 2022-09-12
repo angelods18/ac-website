@@ -38,9 +38,10 @@ export class InfoEventoComponent implements OnInit {
   getLocandina(){
     if(this.evento!=undefined &&this.evento.locandina!=null && 
       this.evento.locandina!=undefined && this.evento.locandina.length>0) {
-      return this.utilService.getMedia(this.evento.locandina[0].id);
+        console.log("caricamento locandina");
+        return this.utilService.getMedia(this.evento.locandina);
     }else{
-      return null;
+        return null;
     }
   }
 
