@@ -66,6 +66,11 @@ export class CreaEventoComponent implements OnInit {
       }
       this.evento.settore=this.data.settore;
     }
+    this.dialogRef.keydownEvents().subscribe(event => {
+      if (event.key === "Escape") {
+          this.close();
+      }
+  });
   }
 
   aggiornaData(){

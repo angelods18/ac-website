@@ -1,5 +1,6 @@
 .evento-card{
     width: 350px;
+    height: 100%;
 }
 
 .apri-evento-hint{
@@ -12,7 +13,10 @@
 }
 
 #card{
-    height: 130px !important
+    height: 95% !important;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 0;
 }
 
 .apri-evento{
@@ -32,7 +36,6 @@
 }
 
 .evento-testo{
-    overflow-x: hidden;
-    white-space: pre;
     margin-left: 5%;
+    margin-bottom: 2%;
 }

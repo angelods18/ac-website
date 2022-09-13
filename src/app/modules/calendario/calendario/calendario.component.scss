@@ -9,6 +9,13 @@
     justify-content: space-between;
 }
 
+.search-button{
+    width: 20%;
+    height: fit-content;
+    display: flex;
+    justify-content: end;
+}
+
 @media(max-width: 1200px) {
     .header-calendario{
         display: flex;
@@ -21,6 +28,7 @@
         max-width: 50%;
     }
     .search-button{
+        width: fit-content;
         flex: 0 0 50%;
         float: right;
         display: flex;
@@ -56,6 +64,9 @@
         order:2;
         min-width: 60% !important;
         max-width: 70% !important;
+    }
+    .titolo-pagina{
+        text-align: center;
     }
 }
 
@@ -94,4 +105,16 @@
 
 #eventi{
     margin-top: 5%;
+}
+
+.titolo-pagina{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h1{
+        font-family: sans-serif !important;
+        font-weight: 600;
+        font-size: xx-large;
+        color: #3f51b5;
+    }
 }

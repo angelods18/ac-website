@@ -20,7 +20,7 @@ export class CalendarioComponent implements OnInit {
   public page: number=0;
   public size: number=10;
   settori = [
-    "TUTTI","ACR", "GVS", "GVN", "ADULTI"
+    "UNITARIO","ACR", "GVS", "GVN", "ADULTI"
   ];
   selectedDate = new Date();
   days: number[]= [];
@@ -34,7 +34,7 @@ export class CalendarioComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.settore="TUTTI";
+    this.settore="UNITARIO";
     console.log(this.selectedDate);
     this.ottieniEventi();
     this.handleWindowWidth()
