@@ -17,10 +17,13 @@
                     <div class="evento-data">
                         Data: <b style="color: #3f51b5;">{{formatData(evento.dataEvento)}}</b>
                     </div>
+                    <div>
+                        Settore: <b style="color: #3f51b5;">{{evento.settore}}</b>
+                    </div>
                 </div>   
             </mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content class="evento-testo" style="overflow-x: hidden; white-space: pre">
+        <mat-card-content class="evento-testo">
             <p>{{evento.descrizione}}</p>
         </mat-card-content>
     </mat-card>

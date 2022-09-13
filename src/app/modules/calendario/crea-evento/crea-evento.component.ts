@@ -82,7 +82,6 @@ export class CreaEventoComponent implements OnInit {
     })
     console.log(this.evento);
     dialogRef.afterClosed().subscribe(data => {
-      console.log("data from dialog", data);
       console.log(this.evento);
       if(data!=undefined){
         this.calendarioService.salvaEvento(this.evento, data).subscribe((resp:any) => {

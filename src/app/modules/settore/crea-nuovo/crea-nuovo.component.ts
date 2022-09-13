@@ -84,7 +84,6 @@ export class CreaNuovoComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(data => {
       if(data!=undefined){
-        console.log("data from dialog", data);
         console.log("request", this.incontro);
         this.incontroService.salvaIncontro(this.incontro, data).subscribe((resp:any) => {
           console.log(resp);
