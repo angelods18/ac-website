@@ -81,20 +81,20 @@ export class CreaEventoComponent implements OnInit {
       width:'450px'
     })
     console.log(this.evento);
-    // dialogRef.afterClosed().subscribe(data => {
-    //   console.log("data from dialog", data);
-    //   console.log(this.evento);
-    //   if(data!=undefined){
-    //     this.calendarioService.salvaEvento(this.evento, data).subscribe((resp:any) => {
-    //       console.log(resp);
-    //       if(this.file!=undefined){
-    //         this.uploadFile(resp.id);
-    //       }
-    //     }, err => {
-    //       window.alert("Errore, l'evento non è stato salvato");
-    //     })
-    //   }
-    // })
+    dialogRef.afterClosed().subscribe(data => {
+      console.log("data from dialog", data);
+      console.log(this.evento);
+      if(data!=undefined){
+        this.calendarioService.salvaEvento(this.evento, data).subscribe((resp:any) => {
+          console.log(resp);
+          if(this.file!=undefined){
+            this.uploadFile(resp.id);
+          }
+        }, err => {
+          window.alert("Errore, l'evento non è stato salvato");
+        })
+      }
+    })
   }
 
   uploadFile(eventoId: string){
