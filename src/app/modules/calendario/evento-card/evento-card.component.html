@@ -1,5 +1,8 @@
 <div class="evento-card">
     <mat-card id="card">
+        <div class="colore-{{evento.settore}}">
+            <br>
+        </div>
         <mat-card-header>
             <mat-card-title class="evento-titolo" style="color: #3f51b5; margin-top:3%">
                 <span>{{evento.titolo}}</span>
@@ -23,8 +26,8 @@
                 </div>   
             </mat-card-subtitle>
         </mat-card-header>
-        <mat-card-content class="evento-testo">
+        <!-- <mat-card-content class="evento-testo">
             <p>{{evento.descrizione}}</p>
-        </mat-card-content>
+        </mat-card-content> -->
     </mat-card>
 </div>

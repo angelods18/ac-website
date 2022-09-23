@@ -1,6 +1,27 @@
 .evento-card{
-    width: 350px;
+    max-width: 350px;
     height: 100%;
+}
+
+.colore-UNITARIO{
+    max-height: 5px;
+    background-color: #3f51b5;
+}
+.colore-ADULTI{
+    max-height: 5px;
+    background-color: #ff6cb1;
+}
+.colore-GVN{
+    max-height: 5px;
+    background-color: #24e484;
+}
+.colore-GVS{
+    max-height: 5px;
+    background-color: #2593ca;
+}
+.colore-ACR{
+    max-height: 5px;
+    background-color: #e0852a;
 }
 
 .apri-evento-hint{
