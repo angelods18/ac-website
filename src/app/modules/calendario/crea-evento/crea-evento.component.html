@@ -1,5 +1,10 @@
 <div class="crea-evento">
     <!-- file upload -->
+    <div style="display: flex; justify-content: right;">
+        <button mat-button id="close-dialog" style="background: none;" (click)="close()">
+            <mat-icon>close icon</mat-icon>
+        </button>
+    </div>
     <div class="evento file-evento">
         <input type="file" class="file-input" (change)="onFileSelected($event)" #fileUpload>
         <div class="file-upload">
@@ -8,11 +13,11 @@
                (click)="fileUpload.click()" style="margin-left: 2%;">
                  <mat-icon>attach_file</mat-icon>
              </button>
-         </div>
-         <div *ngIf="file!=undefined" class="file-upload">
+        </div>
+        <div *ngIf="file!=undefined" class="file-upload">
             {{file.filename}}
             <mat-icon (click)="rimuoviFile()">close icon</mat-icon>
-         </div>
+        </div>
     </div>
     <div class="data-evento" fxLayout="row">
         <div>

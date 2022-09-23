@@ -134,9 +134,6 @@ export class CreaNuovoComponent implements OnInit {
       case "titolo":
         errore = (this.incontro.titolo!=undefined && this.incontro.titolo.length < 3)
         break;
-      case "parrocchia":
-        errore = (this.incontro.parrocchia!=undefined && this.incontro.parrocchia.length < 10)
-        break;
       case "obiettivo":
         errore = (this.incontro.obiettivo!=undefined && this.incontro.obiettivo.length < 20)
         break;
@@ -150,7 +147,6 @@ export class CreaNuovoComponent implements OnInit {
   validateForm(){
   
     let isError = (this.errore('titolo') ||
-        this.errore('parrocchia') ||
         this.errore('obiettivo') ||
         this.errore('descrizione'));
     let basicValidation = (this.incontro.titolo==undefined || 

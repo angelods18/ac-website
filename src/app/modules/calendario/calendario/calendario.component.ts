@@ -54,7 +54,7 @@ export class CalendarioComponent implements OnInit {
     this.eventi=[];
     //Eventi per mese selezionato
     this.calendarioService.ottieniEventi({
-      settore: this.settore!="TUTTI"?this.settore:null,
+      settore: this.settore!="UNITARIO"?this.settore:null,
       month: this.selectedDate.getMonth()+1
     }).subscribe( (resp:any[]) => {
       //console.log("resp", resp);

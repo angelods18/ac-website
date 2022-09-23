@@ -32,7 +32,9 @@ $ac-theme: mat.define-light-theme((color: (primary: $ac-primary,
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+  margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 @media(max-width:768px) {
   .page-with-sidebar{
@@ -49,12 +51,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .page-container {
   padding: 3% 7% 3% 7%;
-  background-color: white;
 }
 
 .page-container-small {
   padding: 3% 7% 3% calc(282px + 7%);
-  background-color: white;
 }
 
 .settings-container-small {
