@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE } from '@angular/material/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -46,6 +46,7 @@ export class CreaEventoComponent implements OnInit {
   recapiti: string[]=[];
   fileName: string;
   file:any;
+  @ViewChild("titolo") titoloField: ElementRef;
 
   constructor(
     public dialogRef: MatDialogRef<CreaEventoComponent>,
@@ -70,7 +71,11 @@ export class CreaEventoComponent implements OnInit {
       if (event.key === "Escape") {
           this.close();
       }
-  });
+    });
+  }
+
+  ngAfterViewInit(){
+    this.titoloField.nativeElement.focus();
   }
 
   aggiornaData(){

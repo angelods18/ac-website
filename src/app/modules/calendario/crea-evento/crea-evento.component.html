@@ -1,7 +1,8 @@
 <div class="crea-evento">
     <!-- file upload -->
-    <div style="display: flex; justify-content: right;">
-        <button mat-button id="close-dialog" style="background: none;" (click)="close()">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h2>Crea evento {{evento.settore}}</h2>
+        <button mat-button id="close-dialog" (click)="close()">
             <mat-icon>close icon</mat-icon>
         </button>
     </div>
@@ -52,7 +53,7 @@
         <div id="titolo">
             <mat-form-field appearance="fill" >
                 <mat-label>Titolo *</mat-label>
-                <input matInput type="text" placeholder="titolo" [(ngModel)]="evento.titolo">
+                <input matInput #titolo type="text" placeholder="titolo" [(ngModel)]="evento.titolo">
             </mat-form-field>
         </div>
         <div *ngIf="errore('titolo')" style="min-width: fit-content ;margin-left: 7%; color:red;">
