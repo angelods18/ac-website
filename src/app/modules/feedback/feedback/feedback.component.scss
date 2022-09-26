@@ -1,0 +1,16 @@
+h1{
+    font-family: sans-serif !important;
+    font-weight: 600;
+    font-size: xx-large;
+    color: #3f51b5;
+}
+
+.nome, .contatti{
+    align-items: center;
+}
+
+@media(max-width: 768px) {
+    #contenuto{
+        width: 400px !important;
+    }
+}

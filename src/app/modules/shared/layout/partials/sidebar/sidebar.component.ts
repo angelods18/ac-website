@@ -22,4 +22,8 @@ export class SidebarComponent implements OnInit {
   calendario(){
     this.router.navigate(['/calendario']);
   }
+
+  feedback(){
+    this.router.navigate(['/feedback'])
+  }
 }

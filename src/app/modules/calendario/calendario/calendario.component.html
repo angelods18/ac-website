@@ -47,9 +47,12 @@
         
 
         <!-- CARD - EVENTI-->
-        <mat-grid-list id="eventi" [cols]="breakpoint" (window:resize)="handleWindowWidth()" rowHeight="140px"  [gutterSize]="'20px'">
+        <div class="lista-eventi">
+          <h1>Prossimi eventi</h1>
+        </div>
+        <mat-grid-list class="eventi" [cols]="breakpoint" (window:resize)="handleWindowWidth()" rowHeight="140px"  [gutterSize]="'20px'">
           <mat-grid-tile *ngFor="let evento of listaEventi">
-            <app-evento-card [evento]="evento" style=" width: 100%;"></app-evento-card>
+            <app-evento-card [evento]="evento" style=" width: 100%; max-width: 350px;"></app-evento-card>
           </mat-grid-tile>
         </mat-grid-list>
     </div>

@@ -1,0 +1,59 @@
+<div class="page-with-sidebar">
+    <div class="pagina-feedback">
+        <h1>FEEDBACK</h1>
+
+         <!-- nome -->
+         <div class="nome" fxLayout="row">
+            <div style="min-width: fit-content; margin-right: 7%;">
+                <h3>Nome e cognome</h3>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" style="margin-right: 5%;">
+                    <mat-label>Nome</mat-label>
+                    <input matInput type="text" placeholder="email" [(ngModel)]="feedForm.nome">
+                </mat-form-field>
+                <mat-form-field appearance="fill" >
+                    <mat-label>Cognome</mat-label>
+                    <input matInput type="text" placeholder="email" [(ngModel)]="feedForm.cognome">
+                </mat-form-field>
+            </div>
+        </div>
+
+         <!-- email e telefono -->
+         <div class="contatti" fxLayout="row">
+            <div style="min-width: fit-content; margin-right: 7%;">
+                <h3>Lascia il tuo contatto</h3>
+            </div>
+            <div>
+                <mat-form-field appearance="fill"  style="margin-right: 5%;">
+                    <mat-label>Email (obbligatorio)</mat-label>
+                    <input matInput type="text" placeholder="email" [(ngModel)]="feedForm.email">
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput type="text" placeholder="telefono" [(ngModel)]="feedForm.telefono">
+                </mat-form-field>
+            </div>
+        </div>
+        <!-- Contenuto -->
+        <div class="contenuto-feedback">
+            <div>
+                <h3>Messaggio</h3>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" id="contenuto" style="width: 600px">
+                    <mat-label>Come possiamo aiutarti?</mat-label>
+                    <textarea matInput rows="4" cols="50" placeholder="text" [(ngModel)]="feedForm.content"></textarea>
+                </mat-form-field>
+            </div>
+        </div>
+
+         <!-- salva evento -->
+        <div class="invia-evento">
+            <button mat-raised-button color="primary" class="invia-feedback"  (click)="inviaFeedback()" [disabled]="validateForm()">
+                Invia messaggio
+                <mat-icon id="send-icon">send</mat-icon>    
+            </button>
+        </div>
+    </div>
+</div>

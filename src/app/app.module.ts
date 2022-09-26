@@ -9,10 +9,12 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MyInterceptor } from './services/myInterceptor';
 import { UtilService } from './services/util.service';
 import { AppConfigService } from './services/app-config.service';
+import { FeedbackComponent } from './modules/feedback/feedback/feedback.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,

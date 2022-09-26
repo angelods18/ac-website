@@ -42,6 +42,13 @@
         margin-right: auto;
         order: 1;
     }
+    .lista-eventi{
+        justify-content: center;
+    }
+    .eventi{
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
 @media(max-width: 768px) {
@@ -68,6 +75,7 @@
     .titolo-pagina{
         text-align: center;
     }
+    
 }
 
 .body-calendario{
@@ -103,18 +111,20 @@
     margin-top: 5%;
 }
 
-#eventi{
-    margin-top: 5%;
-}
-
 .titolo-pagina{
     display: flex;
     flex-direction: column;
     align-items: center;
-    h1{
-        font-family: sans-serif !important;
-        font-weight: 600;
-        font-size: xx-large;
-        color: #3f51b5;
-    }
+}
+
+h1{
+    font-family: sans-serif !important;
+    font-weight: 600;
+    font-size: xx-large;
+    color: #3f51b5;
+}
+
+.lista-eventi{
+    display: flex;
+    margin-top: 5%;
 }
